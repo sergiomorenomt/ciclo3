@@ -1,0 +1,27 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/consultar.js"></script>    
+    <script type="text/javascript" src="js/guardar.js"></script>    
+</head>
+
+<body>
+    <h1>Cuatrimotos</h1>
+    <h4>Registra una cuatrimoto</h4>
+    ID <input type="text" id="id"/> <br/>
+    Brand <input type="text" id="brand"/> <br/>
+    Model <input type="text" id="model"/> <br/>
+    Category_id <input type="text" id="category_id"/> <br/>
+    Name <input type="text" id="name"/>
+    <button onclick="guardar()"> Guardar</button>
+
+    <h4>Moto Registrados</h4>
+        <button onclick="consultar()">Consultar Datos</button>
+        <div id="tabla">
+            <!-- Esto es un comentario en html, y
+            puede ser multilinea -->
+        </div>
+</body>
+
+
+</html>
