@@ -1,6 +1,8 @@
+var url = "https://g5439e8565187ff-dbproyecto.adb.us-ashburn-1.oraclecloudapps.com"
+
 function consultar(){
     $.ajax({
-        url: "https://g5439e8565187ff-dbproyecto.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/quadbike/quadbike",
+        url: url + "/ords/admin/quadbike/quadbike",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
