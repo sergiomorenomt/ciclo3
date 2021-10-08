@@ -1,4 +1,4 @@
-var url = "https://g5439e8565187ff-dbproyecto.adb.us-ashburn-1.oraclecloudapps.com"
+var url = "https://g3f8b1b2854c10f-cuatrimoto.adb.sa-santiago-1.oraclecloudapps.com"
 
 function consultar(){
     $.ajax({
@@ -42,4 +42,45 @@ function mostrarRespuesta(items){
     tabla +=`</table>`;
 
     $("#tabla").html(tabla);
+}
+function consultarcliente(){
+    $.ajax({
+        url: url+ "/ords/admin/client/client",
+        type: 'GET',
+        dataType: 'json',
+        success: function(respuesta){
+            console.log(respuesta.items);
+            mostrarClientes(respuesta.items);
+        },
+        error: function (xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
+
+function mostrarClientes(items){
+    var tabla = `<table border="1">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Acciones</th>
+                  </tr>`;
+                  
+    
+    for (var i=0; i < items.length; i++) {
+        tabla +=`<tr>
+                   <td>${items[i].id}</td>
+                   <td>${items[i].name}</td>
+                   <td>${items[i].email}</td>
+                   <td>${items[i].age}</td>
+                   <td>
+                        <button>Eliminar</button>
+                   </td> 
+                </tr>`;
+    }
+    tabla +=`</table>`;
+
+    $("#tabla_cliente").html(tabla);
 }

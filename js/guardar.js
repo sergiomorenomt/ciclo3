@@ -12,7 +12,7 @@ function guardar(){
     console.log(cuatrimoto);
 
     $.ajax({
-        url: "https://g5439e8565187ff-dbproyecto.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/quadbike/quadbike",
+        url: url+"/ords/admin/quadbike/quadbike",
         type: 'POST',
         dataType: 'json',
         headers: {
@@ -27,3 +27,32 @@ function guardar(){
     });
 
 }
+function guardarcliente(){
+    console.log("ejecutando funcion para guardar");
+
+    let client = {
+        id: +$("#id_cliente").val(),
+        name: $("#name_cliente").val(),
+        email: $("#email_cliente").val(),
+        age: +$("#age_cliente").val()
+    };
+
+    console.log(client);
+
+    $.ajax({
+        url: url+"/ords/admin/client/client",
+        type: 'POST',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify(client),
+        statusCode:{
+            201:function(){
+                alert('Se ha registrado el cliente');
+            }
+        },
+    });
+
+}
+
