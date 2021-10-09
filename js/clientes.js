@@ -19,10 +19,11 @@ function guardarcliente(){
                 201:function(){
                     alert('Se ha registrado el cliente');
                     consultarcliente()
+                    limpiarCamposCliente()
+                },
+                555:function(){
+                    alert('Ya existe un cliente con ese id')
                 }
-            },
-            error: function (xhr, status) {
-                alert('Ya existe un cliente con ese id');
             }
         });
     }
@@ -155,6 +156,16 @@ function validarCliente(client){
     if (client.id<=0|| client.name===''|| client.email===''|| client.age<=0){
         alert("Procure no dejar campos vacíos\nEl id y la edad son números no negativos")
         return false;
+    }else if (client.email.length>20){
+        alert('Su correo es demasiado extenso. Debe tener 20 caracteres')
+        return false;
     }
     return true;
+}
+
+function limpiarCamposCliente(){
+    $("#id_cliente").val('');
+    $("#name_cliente").val('');
+    $("#email_cliente").val('');
+    $("#age_cliente").val('');
 }
