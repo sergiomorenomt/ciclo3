@@ -45,6 +45,7 @@ function consultar(){
 }
 
 function mostrarRespuesta(items){
+    $("#tabla").empty();
     var tabla = `<table border="1">
                   <tr>
                     <th>ID</th>
