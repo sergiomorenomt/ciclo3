@@ -159,7 +159,9 @@ function validarCliente(client){
     }else if (client.email.length>20){
         alert('Su correo es demasiado extenso. Debe tener 20 caracteres')
         return false;
-    }else if (va)
+    }else if (validarCorreo(client.email)){
+        alert('Su correo no tiene formato de correo electrónico')
+    }
     return true;
 }
 
