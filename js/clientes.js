@@ -159,8 +159,6 @@ function validarCliente(client){
     }else if (client.email.length>20){
         alert('Su correo es demasiado extenso. Debe tener 20 caracteres')
         return false;
-    }else if (validarCorreo(client.email)){
-        alert('Su correo no tiene formato de correo electrónico')
     }
     return true;
 }
@@ -170,14 +168,4 @@ function limpiarCamposCliente(){
     $("#name_cliente").val('');
     $("#email_cliente").val('');
     $("#age_cliente").val('');
-}
-
-/**
- * Función que valida si un correo tiene el formato de correo electrónico o no. Tomado de: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
- * @param {string} email que es el correo
- * @returns verdadero si encaja con el formato y falso si no
- */
-function validarCorreo(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
 }
