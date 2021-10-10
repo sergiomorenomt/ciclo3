@@ -41,7 +41,7 @@ function consultarMensajes(){
 }
 
 function validarMensaje(message){
-    if(id<=0 || message===''){
+    if(message.id<=0 || message.messagetext===''){
         alert("Procure no dejar campos vacíos\nEl id es un número positivo");
         return false;
     }
@@ -76,4 +76,76 @@ function mostrarMensajes(items){
 function limpiarCamposMensaje(){
     $("#id_mensaje").val('');
     $('#message').val('');
+}
+
+
+function consultarMensajePorId(id){
+    $.ajax({
+        url: url+ "/ords/admin/message/message/"+id,
+        type: 'GET',
+        dataType: 'json',
+        success: function(respuesta){
+            console.log(respuesta.items)
+            mostrarMensajeUnico(respuesta.items[0]);
+        },
+        error: function (xhr, status) {
+            alert('ha sucedido un problema');
+        }
+    });
+}
+
+
+function mostrarMensajeUnico(item){
+    console.log("item",item)
+    $("#id_mensaje").val(item.id);
+    $("#name_mensaje").val(item.messagetext);
+}
+
+function actualizarMensaje(){
+    let message ={
+        id : +$("#id_mensaje").val(),
+        messagetext: $("#name_mensaje").val(),
+    }
+    if(validarMensaje(message)){
+        $.ajax({
+            url: url+"/ords/admin/message/message",
+            type: 'PUT',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(message),
+            statusCode:{
+                201:function(){
+                    alert('Se ha actualizado el mensaje');
+                    window.location.assign('index.html')
+                },
+                555:function(){
+                    alert('Error al actualizar')
+                }
+            }
+        });
+    }
+}
+
+function eliminarMensaje(id){
+    let opc = confirm('¿Está seguro que desea eliminar a ese mensaje?')
+    if(opc){
+        $.ajax({
+            url: url+"/ords/admin/message/message",
+            type: 'DELETE',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({id:id}),
+            statusCode:{
+                204:function(){
+                    alert('Se ha eliminado el mensaje');
+                    consultarMensajes()
+                }
+            },
+        });
+    }
+
 }
