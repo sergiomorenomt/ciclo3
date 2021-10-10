@@ -101,6 +101,7 @@ function actualizar(){
             statusCode:{
                 201:function(){
                     alert('Se ha actualizado la informacion de la cuatrimoto');
+                    window.location.assign("index.html");
                 }
             },
         });
