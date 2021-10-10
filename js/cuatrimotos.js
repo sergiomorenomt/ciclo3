@@ -109,33 +109,36 @@ function actualizar(){
 
 function eliminar(identificador){
     console.log("ejecutando funcion para eliminar");
-
-    let quadbike = {
-        id: +identificador
-    };
-
-    console.log(quadbike);
-
-    $.ajax({
-        url: url+"/ords/admin/quadbike/quadbike",
-        type: 'DELETE',
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(quadbike),
-        statusCode:{
-            204:function(){
-                alert('Se ha eliminado la cuatrimoto');
-                consultar();
-            }
-        },
-    });
+    let opc = confirm('¿Está seguro que desea eliminar a esa cuatrimoto?')
+    if (opc){
+        let quadbike = {
+            id: +identificador
+        };
+    
+        console.log(quadbike);
+    
+        $.ajax({
+            url: url+"/ords/admin/quadbike/quadbike",
+            type: 'DELETE',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(quadbike),
+            statusCode:{
+                204:function(){
+                    alert('Se ha eliminado la cuatrimoto');
+                    consultar();
+                }
+            },
+        });
+    }
+    
 
 }
 
 function validarCuatrimoto(cuatrimoto){
-    if (cuatrimoto.id<=0|| cuatrimoto.brand===''|| cuatrimoto.model===''|| cuatrimoto.name==='' || cuatromoto.category_id<=0){
+    if (cuatrimoto.id<=0|| cuatrimoto.brand===''|| cuatrimoto.model===''|| cuatrimoto.name==='' || cuatrimoto.category_id<=0){
         alert("Procure no dejar campos vacíos\nEl id y id de categoría son números positivos")
         return false;
     }
