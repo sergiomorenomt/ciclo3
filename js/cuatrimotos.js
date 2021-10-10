@@ -10,23 +10,24 @@ function guardar(){
     };
 
     console.log(cuatrimoto);
-
-    $.ajax({
-        url: url+"/ords/admin/quadbike/quadbike",
-        type: 'POST',
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(cuatrimoto),
-        statusCode:{
-            201:function(){
-                alert('Se ha registrado la cuatrimoto');
-                consultar();
-            }
-        },
-    });
-
+    if (validarCuatrimoto(cuatrimoto)){
+        $.ajax({
+            url: url+"/ords/admin/quadbike/quadbike",
+            type: 'POST',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(cuatrimoto),
+            statusCode:{
+                201:function(){
+                    alert('Se ha registrado la cuatrimoto');
+                    consultar();
+                }
+            },
+        });    
+    }
+    
 }
 
 
@@ -88,21 +89,22 @@ function actualizar(){
     };
 
     console.log(quadbike);
-
-    $.ajax({
-        url: url+"/ords/admin/quadbike/quadbike",
-        type: 'PUT',
-        dataType: 'json',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        data: JSON.stringify(quadbike),
-        statusCode:{
-            201:function(){
-                alert('Se ha actualizado la informacion de la cuatrimoto');
-            }
-        },
-    });
+    if(validarCuatrimoto(quadbike)){
+        $.ajax({
+            url: url+"/ords/admin/quadbike/quadbike",
+            type: 'PUT',
+            dataType: 'json',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(quadbike),
+            statusCode:{
+                201:function(){
+                    alert('Se ha actualizado la informacion de la cuatrimoto');
+                }
+            },
+        });
+    }
 }
 
 function eliminar(identificador){
@@ -130,4 +132,12 @@ function eliminar(identificador){
         },
     });
 
+}
+
+function validarCuatrimoto(cuatrimoto){
+    if (cuatrimoto.id<=0|| cuatrimoto.brand===''|| cuatrimoto.model===''|| cuatrimoto.name==='' || cuatromoto.category_id<=0){
+        alert("Procure no dejar campos vacíos\nEl id y id de categoría son números positivos")
+        return false;
+    }
+    return true;
 }
