@@ -22,6 +22,7 @@ function guardar(){
         statusCode:{
             201:function(){
                 alert('Se ha registrado la cuatrimoto');
+                consultar();
             }
         },
     });
