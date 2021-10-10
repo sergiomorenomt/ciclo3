@@ -64,11 +64,67 @@ function mostrarRespuesta(items){
                    <td>${items[i].category_id}</td>
                    <td>${items[i].name}</td>
                    <td>
-                        <button>Eliminar</button>
+                   <button onclick="eliminar(${items[i].id})">Eliminar</button>
+                   <a href="detalle.html?id=${items[i].id}">Editar</a>
                    </td> 
                 </tr>`;
     }
     tabla +=`</table>`;
 
     $("#tabla").html(tabla);
+}
+
+function actualizar(){
+    console.log("ejecutando funcion para actualizar");
+
+    let quadbike = {
+        id: +$("#id").val(),
+        brand: $("#brand").val(),
+        model: +$("#model").val(),
+        category_id: $("#category_id").val(),
+        name: $("#name").val()
+    };
+
+    console.log(quadbike);
+
+    $.ajax({
+        url: url+"/ords/admin/quadbike/quadbike",
+        type: 'PUT',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify(quadbike),
+        statusCode:{
+            201:function(){
+                alert('Se ha actualizado la informacion de la cuatrimoto');
+            }
+        },
+    });
+}
+
+function eliminar(identificador){
+    console.log("ejecutando funcion para eliminar");
+
+    let quadbike = {
+        id: +identificador
+    };
+
+    console.log(quadbike);
+
+    $.ajax({
+        url: url+"/ords/admin/quadbike/quadbike",
+        type: 'DELETE',
+        dataType: 'json',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        data: JSON.stringify(quadbike),
+        statusCode:{
+            204:function(){
+                alert('Se ha eliminado la cuatrimoto');
+            }
+        },
+    });
+
 }
