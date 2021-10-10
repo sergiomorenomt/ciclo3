@@ -1,7 +1,7 @@
 function guardarMensaje(){
     let message ={
         id : +$("#id_mensaje").val(),
-        messagetext: $("#message").val(),
+        messagetext: $("#name_mensaje").val(),
     }
     if(validarMensaje(message)){
         $.ajax({
@@ -26,12 +26,12 @@ function guardarMensaje(){
     }
 }
 function consultarMensajes(){
-    $("#tabla_mensajes").empty();
     $.ajax({
         url: url+ "/ords/admin/message/message",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
+            console.log(respuesta.items)
             mostrarMensajes(respuesta.items);
         },
         error: function (xhr, status) {
@@ -49,7 +49,7 @@ function validarMensaje(message){
 }
 
 function mostrarMensajes(items){
-    $("#tabla_mensajes").empty()
+    $("#tabla_mensaje").empty()
     var tabla = `<table border="1">
                   <tr>
                     <th>ID</th>
@@ -70,7 +70,7 @@ function mostrarMensajes(items){
     }
     tabla +=`</table>`;
 
-    $("#tabla_mensajes").html(tabla);
+    $("#tabla_mensaje").html(tabla);
 }
 
 function limpiarCamposMensaje(){

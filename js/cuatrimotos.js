@@ -124,6 +124,7 @@ function eliminar(identificador){
         statusCode:{
             204:function(){
                 alert('Se ha eliminado la cuatrimoto');
+                consultar();
             }
         },
     });
