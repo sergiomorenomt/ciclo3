@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class serviciosCuatrimoto {
+    
+
     @Autowired
     private RepositorioCuatrimoto metodosCrud;
     
@@ -32,7 +34,7 @@ public class serviciosCuatrimoto {
         }
         else{
             Optional<Cuatrimoto> evt=metodosCrud.getCuatrimoto(cuatrimoto.getId());
-            if(evt.isEmpty()){
+            if(evt.get()!=null){
                 return metodosCrud.save(cuatrimoto);
             }else{
                 return cuatrimoto;
@@ -40,4 +42,5 @@ public class serviciosCuatrimoto {
         }
             
     }
+
 }
