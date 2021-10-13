@@ -1,3 +1,3 @@
 
-var url = "https://gb80886504ed8c0-quadbike.adb.us-sanjose-1.oraclecloudapps.com"
+var url = "https://g3f8b1b2854c10f-cuatrimoto.adb.sa-santiago-1.oraclecloudapps.com"
 
