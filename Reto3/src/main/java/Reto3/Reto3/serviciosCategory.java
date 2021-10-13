@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class serviciosCategory {
+    
+
  @Autowired
     private RepositorioCategory metodosCrud;
     
@@ -32,12 +34,13 @@ public class serviciosCategory {
         }
         else{
             Optional<Category> evt=metodosCrud.getCategory(category.getIdcategory());
-            if(evt.isEmpty()){
+            if(evt.get()!=null){
                 return metodosCrud.save(category);
             }else{
                 return category;
             }
         }
             
-    }   
+    }
+
 }

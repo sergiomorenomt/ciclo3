@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * @author v13
  */
 @Entity
-@Table(name="Category")
+@Table(name="category")
 public class Category {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)     
