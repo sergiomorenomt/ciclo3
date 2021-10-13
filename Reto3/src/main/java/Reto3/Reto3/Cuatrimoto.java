@@ -30,7 +30,7 @@ public class Cuatrimoto {
   private String description;
  @ManyToOne
  @JoinColumn(name="id")
- @JsonIgnoreProperties("category")
+ @JsonIgnoreProperties("Category")
  private Category category; 
 
     public Integer getId() {
@@ -81,8 +81,6 @@ public class Cuatrimoto {
         this.category = category;
     }
 
-   
-  
-    
+     
   
 }

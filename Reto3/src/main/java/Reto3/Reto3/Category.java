@@ -27,8 +27,9 @@ public class Category {
     private Integer idcategory;
     private String name;
     private String description;
-    @OneToMany(cascade =(CascadeType.PERSIST),mappedBy="category")
-    @JsonIgnoreProperties("category")
+    
+    @OneToMany(cascade =(CascadeType.PERSIST),mappedBy="Category")
+    @JsonIgnoreProperties("Category")
     private List<Cuatrimoto> cuatrimoto;
 
     public Integer getIdcategory() {
@@ -63,6 +64,7 @@ public class Category {
         this.cuatrimoto = cuatrimoto;
     }
 
-   
+    
+     
     
 }
