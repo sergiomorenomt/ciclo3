@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3.repositorio;
+package reto3.reto3.repositorio;
 
-import Reto3.Reto3.modelo.Cuatrimoto;
-import Reto3.Reto3.repositorios.crud.interfaceCuatrimoto;
+import reto3.reto3.modelo.Cuatrimoto;
+import reto3.reto3.repositorios.crud.interfaceCuatrimoto;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,26 +14,29 @@ import reto3.reto3.repositorio.RepositorioScore;
 
 @Service
 public class serviciosScore {
- @Autowired
+
+    @Autowired
     private RepositorioScore metodosCrud;
-    
-    public List<Score> getAll(){
+
+    public List<Score> getAll() {
         return metodosCrud.getAll();
-        
+
     }
-    public Optional<Score> getScore(int idScore){
+
+    public Optional<Score> getScore(int idScore) {
         return metodosCrud.getScore(idScore);
     }
-    public Score save(Score score){
-        if (score.getIdScore()==null){
+
+    public Score save(Score score) {
+        if (score.getIdScore() == null) {
             return metodosCrud.save(score);
-        }
-        else{
-            Optional<Score> evt=metodosCrud.getScore(score.getIdScore());
-            if(evt.get()!=null){
+        } else {
+            Optional<Score> evt = metodosCrud.getScore(score.getIdScore());
+            if (evt.get() != null) {
                 return metodosCrud.save(score);
-            }else{
+            } else {
                 return score;
             }
-        }    
+        }
+    }
 }
