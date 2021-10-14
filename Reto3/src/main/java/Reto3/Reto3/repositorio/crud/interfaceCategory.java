@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.repositorio.crud;
 
+import Reto3.Reto3.modelo.Category;
 import org.springframework.data.repository.CrudRepository;
 
 /**
