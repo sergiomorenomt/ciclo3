@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.servicio;
 
+import Reto3.Reto3.repositorio.RepositorioCategory;
+import Reto3.Reto3.modelo.Category;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
