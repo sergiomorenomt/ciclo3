@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.servicio;
 
+import Reto3.Reto3.repositorio.RepositorioCuatrimoto;
+import Reto3.Reto3.modelo.Cuatrimoto;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class serviciosCuatrimoto {
+    
+
     @Autowired
     private RepositorioCuatrimoto metodosCrud;
     
@@ -32,7 +36,7 @@ public class serviciosCuatrimoto {
         }
         else{
             Optional<Cuatrimoto> evt=metodosCrud.getCuatrimoto(cuatrimoto.getId());
-            if(evt.isEmpty()){
+            if(evt.get()!=null){
                 return metodosCrud.save(cuatrimoto);
             }else{
                 return cuatrimoto;
@@ -40,4 +44,5 @@ public class serviciosCuatrimoto {
         }
             
     }
+
 }

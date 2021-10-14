@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.servicio;
 
+import Reto3.Reto3.repositorio.RepositorioCategory;
+import Reto3.Reto3.modelo.Category;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class serviciosCategory {
+    
+
  @Autowired
     private RepositorioCategory metodosCrud;
     
@@ -32,12 +36,13 @@ public class serviciosCategory {
         }
         else{
             Optional<Category> evt=metodosCrud.getCategory(category.getIdcategory());
-            if(evt.isEmpty()){
+            if(evt.get()!=null){
                 return metodosCrud.save(category);
             }else{
                 return category;
             }
         }
             
-    }   
+    }
+
 }

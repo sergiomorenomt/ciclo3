@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Entity;
@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * @author v13
  */
 @Entity
-@Table(name="Cuatrimoto")
+@Table(name="cuatrimoto")
 public class Cuatrimoto {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -29,9 +29,9 @@ public class Cuatrimoto {
   private Integer year;
   private String description;
  @ManyToOne
- @JoinColumn(name="id")
- @JsonIgnoreProperties("Category")
- private Category category; 
+ @JoinColumn(name="idcategory")
+ @JsonIgnoreProperties("category")
+ private Category category;
 
     public Integer getId() {
         return id;

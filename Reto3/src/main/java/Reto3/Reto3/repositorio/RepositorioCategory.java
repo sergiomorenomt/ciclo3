@@ -1,31 +1,32 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.repositorio;
 
+import Reto3.Reto3.repositorio.crud.interfaceCategory;
+import Reto3.Reto3.modelo.Category;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository
 /**
  *
  * @author v13
  */
-public class RepositorioCuatrimoto {
+@Repository
+public class RepositorioCategory {
     @Autowired
-    private interfaceCuatrimoto crud;
-    public List<Cuatrimoto> getAll(){
-        return (List<Cuatrimoto>) crud.findAll();
+    private interfaceCategory crud;
+    public List<Category> getAll(){
+        return (List<Category>) crud.findAll();
     }
-   public Optional <Cuatrimoto> getCuatrimoto (int id){
+   public Optional <Category> getCategory(int id){
        return crud.findById(id);
    } 
-   public Cuatrimoto save (Cuatrimoto cuatrimoto){
-       return crud.save(cuatrimoto);
+   public Category save (Category category){
+       return crud.save(category);
    }
-   
 }

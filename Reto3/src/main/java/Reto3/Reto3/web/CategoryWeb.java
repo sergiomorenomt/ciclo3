@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3;
+package Reto3.Reto3.web;
 
+import Reto3.Reto3.servicio.serviciosCategory;
+import Reto3.Reto3.modelo.Category;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,25 +24,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @author v13
  */
 @RestController
-@RequestMapping("/api/Cuatrimoto")
-public class CuatrimotoWeb {
-    @GetMapping("/hola mundo")
-    public String saludar(){
-    return "hola mundo colombia";
-            }
-    @Autowired
-    private serviciosCuatrimoto servicios;
+@RequestMapping("/api/Category")
+public class CategoryWeb {
+  @Autowired
+    private serviciosCategory servicios;
     @GetMapping ("/all")
-    public List<Cuatrimoto> getCuatrimoto(){
+    public List<Category> getCategory(){
      return servicios.getAll();
     }
     @GetMapping("/(id)")
-    public Optional<Cuatrimoto> getCuatrimoto(@PathVariable("id")int idCuatrimoto){
-        return servicios.getCuatrimoto(idCuatrimoto);
+    public Optional<Category> getCategory(@PathVariable("id")int idCategory){
+        return servicios.getCategory(idCategory);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cuatrimoto save(@RequestBody Cuatrimoto cuatrimoto){
-        return   servicios.save(cuatrimoto);
-    }
+    public Category save(@RequestBody Category category){
+        return   servicios.save(category);
+    }   
 }
