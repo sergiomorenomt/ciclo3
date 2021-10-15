@@ -29,6 +29,7 @@ public class Cuatrimoto implements  Serializable{
   private String  brand;
   private Integer year;
   private String description;
+ 
  @ManyToOne
  @JoinColumn(name="idcategory")
  @JsonIgnoreProperties("category")
