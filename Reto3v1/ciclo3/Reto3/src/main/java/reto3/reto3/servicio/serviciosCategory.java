@@ -31,11 +31,11 @@ public class serviciosCategory {
         return metodosCrud.getCategory(idCategory);
     }
     public Category save(Category category){
-        if (category.getIdcategory()==null){
+        if (category.getId()==null){
             return metodosCrud.save(category);
         }
         else{
-            Optional<Category> evt=metodosCrud.getCategory(category.getIdcategory());
+            Optional<Category> evt=metodosCrud.getCategory(category.getId());
             if(evt.get()!=null){
                 return metodosCrud.save(category);
             }else{
