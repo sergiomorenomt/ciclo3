@@ -5,7 +5,7 @@
  */
 package reto3.reto3.web;
 
-import reto3.reto3.servicio.serviciosCuatrimoto;
+import reto3.reto3.servicio.serviciosQuadbike;
 import reto3.reto3.modelo.Quadbike;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/Quadbike")
 public class CuatrimotoWeb {
     @Autowired
-    private serviciosCuatrimoto servicios;
+    private serviciosQuadbike servicios;
     @GetMapping ("/all")
     public List<Quadbike> getCuatrimoto(){
      return servicios.getAll();
