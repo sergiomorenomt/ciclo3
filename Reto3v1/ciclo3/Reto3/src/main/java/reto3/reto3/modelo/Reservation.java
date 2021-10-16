@@ -5,43 +5,45 @@
  */
 package reto3.reto3.modelo;
 
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
-//import javax.persistence.CascadeType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
-//import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="reservation")
-public class Reservation implements Serializable{
- @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)     
+@Table(name = "reservation")
+public class Reservation implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
     private Date starDate;
     private Date devolutionDate;
-    private String status="created";
-        
- //@ManyToOne
- //@JoinColumn(name="id")
- //@JsonIgnoreProperties("reservation")
- //private Cuatrimoto cuatrimoto;  
-  
+    private String status = "created";
 
- //@ManyToOne
- //@JoinColumn(name="Idclient")
- //@JsonIgnoreProperties({"message","reservation"})
- //private Client client;  
- 
-// @OneToMany(cascade =(CascadeType.PERSIST),mappedBy="reservation")
- //@JsonIgnoreProperties("reservation")
- //private Score score;
+    @ManyToOne
+    @JoinColumn(name = "quadbike_id")
+    @JsonIgnoreProperties("reservations")
+    private Quadbike quadbike;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties("reservations")
+    private Client client;
+
+    //@OneToMany(cascade = (CascadeType.PERSIST), mappedBy = "reservation")
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "score_id",referencedColumnName = "idScore",unique=true)
+    private Score score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -74,13 +76,13 @@ public class Reservation implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
-/*
-    public Cuatrimoto getCuatrimoto() {
-        return cuatrimoto;
+
+    public Quadbike getQuadbike() {
+        return quadbike;
     }
 
-    public void setCuatrimoto(Cuatrimoto cuatrimoto) {
-        this.cuatrimoto = cuatrimoto;
+    public void setQuadbike(Quadbike cuatrimoto) {
+        this.quadbike = cuatrimoto;
     }
 
     public Client getClient() {
@@ -98,8 +100,6 @@ public class Reservation implements Serializable{
     public void setScore(Score score) {
         this.score = score;
     }
- 
- */
- 
- 
+
+
 }
