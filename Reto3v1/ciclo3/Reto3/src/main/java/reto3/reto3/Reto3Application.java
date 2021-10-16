@@ -1,12 +1,7 @@
-//1.Modelo o Entidad
-//2.Interface
-//3.Repositorio
-//4.Servicios
-//5.Controlador o  Web
 package reto3.reto3;
 
-import reto3.reto3.modelo.Cuatrimoto;
-import reto3.reto3.repositorio.RepositorioCuatrimoto;
+import reto3.reto3.modelo.Quadbike;
+import reto3.reto3.repositorio.RepositorioQuadbike;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
@@ -19,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"reto3.reto3"})
 public class Reto3Application {
     @Autowired
-    private RepositorioCuatrimoto repoCuatrimoto;
+    private RepositorioQuadbike repoCuatrimoto;
     public static void main(String[] args) {
         SpringApplication.run(Reto3Application.class, args);
     }
@@ -27,7 +22,7 @@ public class Reto3Application {
     @Bean
     ApplicationRunner applicationRunner() {
         return args -> {
-            List<Cuatrimoto> ps = repoCuatrimoto.getAll();
+            List<Quadbike> ps = repoCuatrimoto.getAll();
             System.out.println("Productos: " + ps.size());
 
            

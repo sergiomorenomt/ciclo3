@@ -5,10 +5,10 @@
  */
 package reto3.reto3.repositorios.crud;
 
-import reto3.reto3.modelo.Cuatrimoto;
+import reto3.reto3.modelo.Quadbike;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface interfaceCuatrimoto extends CrudRepository<Cuatrimoto, Integer> {
+public interface interfaceQuadbike extends CrudRepository<Quadbike, Integer> {
     
 }

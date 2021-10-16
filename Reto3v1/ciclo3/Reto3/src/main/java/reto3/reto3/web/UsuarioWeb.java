@@ -34,7 +34,7 @@ public class UsuarioWeb {
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario save(@RequestBody Usuario usuario){
-        return   servicios.save(usuario);
+    public void save(@RequestBody Usuario usuario){
+        servicios.save(usuario);
     }    
 }

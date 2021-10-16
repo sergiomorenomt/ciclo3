@@ -34,7 +34,7 @@ public class ScoreWeb {
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Score save(@RequestBody Score score){
-        return   servicios.save(score);
+    public void save(@RequestBody Score score){
+        servicios.save(score);
     }    
 }

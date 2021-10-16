@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package reto3.reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -16,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author 
+ */
 @Entity
 @Table(name="client")
 public class Client implements  Serializable {
@@ -29,9 +28,10 @@ public class Client implements  Serializable {
     @OneToMany(cascade =(CascadeType.PERSIST),mappedBy="client")
     @JsonIgnoreProperties("client")
     private List<Message> message; 
-    //@OneToMany(cascade =(CascadeType.PERSIST),mappedBy="client")
-    //@JsonIgnoreProperties("client")
-    //private List<Reservation> reservation;
+    
+    @OneToMany(cascade =(CascadeType.PERSIST),mappedBy="client")
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservation;
 
     public Integer getIdClient() {
         return idClient;
@@ -80,7 +80,7 @@ public class Client implements  Serializable {
     public void setMessage(List<Message> message) {
         this.message = message;
     }
- /*
+
     public List<Reservation> getReservation() {
         return reservation;
     }
@@ -88,6 +88,5 @@ public class Client implements  Serializable {
     public void setReservation(List<Reservation> reservation) {
         this.reservation = reservation;
     }
-  */  
     
 }

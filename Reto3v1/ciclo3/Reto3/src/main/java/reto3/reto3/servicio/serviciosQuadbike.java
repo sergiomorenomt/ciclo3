@@ -5,8 +5,8 @@
  */
 package reto3.reto3.servicio;
 
-import reto3.reto3.modelo.Cuatrimoto;
-import reto3.reto3.repositorio.RepositorioCuatrimoto;
+import reto3.reto3.modelo.Quadbike;
+import reto3.reto3.repositorio.RepositorioQuadbike;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,25 +14,25 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class serviciosCuatrimoto {
+public class serviciosQuadbike {
     
 
     @Autowired
-    private RepositorioCuatrimoto metodosCrud;
+    private RepositorioQuadbike metodosCrud;
     
-    public List<Cuatrimoto> getAll(){
+    public List<Quadbike> getAll(){
         return metodosCrud.getAll();
         
     }
-    public Optional<Cuatrimoto> getCuatrimoto(int id){
+    public Optional<Quadbike> getCuatrimoto(int id){
         return metodosCrud.getCuatrimoto(id);
     }
-    public Cuatrimoto save(Cuatrimoto cuatrimoto){
+    public Quadbike save(Quadbike cuatrimoto){
         if (cuatrimoto.getId()==null){
             return metodosCrud.save(cuatrimoto);
         }
         else{
-            Optional<Cuatrimoto> evt=metodosCrud.getCuatrimoto(cuatrimoto.getId());
+            Optional<Quadbike> evt=metodosCrud.getCuatrimoto(cuatrimoto.getId());
             if(evt.get()!=null){
                 return metodosCrud.save(cuatrimoto);
             }else{

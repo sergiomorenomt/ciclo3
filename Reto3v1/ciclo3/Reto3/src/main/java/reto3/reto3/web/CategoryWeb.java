@@ -35,7 +35,7 @@ public class CategoryWeb {
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category category){
-        return   servicios.save(category);
+    public void save(@RequestBody Category category){
+        servicios.save(category);
     }   
 }

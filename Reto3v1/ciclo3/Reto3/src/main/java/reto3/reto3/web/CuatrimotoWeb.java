@@ -5,8 +5,8 @@
  */
 package reto3.reto3.web;
 
-import reto3.reto3.servicio.serviciosCuatrimoto;
-import reto3.reto3.modelo.Cuatrimoto;
+import reto3.reto3.servicio.serviciosQuadbike;
+import reto3.reto3.modelo.Quadbike;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,18 +23,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/Quadbike")
 public class CuatrimotoWeb {
     @Autowired
-    private serviciosCuatrimoto servicios;
+    private serviciosQuadbike servicios;
     @GetMapping ("/all")
-    public List<Cuatrimoto> getCuatrimoto(){
+    public List<Quadbike> getCuatrimoto(){
      return servicios.getAll();
     }
     @GetMapping("/(id)")
-    public Optional<Cuatrimoto> getCuatrimoto(@PathVariable("id")int id){
+    public Optional<Quadbike> getCuatrimoto(@PathVariable("id")int id){
         return servicios.getCuatrimoto(id);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cuatrimoto save(@RequestBody Cuatrimoto cuatrimoto){
-        return   servicios.save(cuatrimoto);
+    public void save(@RequestBody Quadbike cuatrimoto){
+        servicios.save(cuatrimoto);
     }
 }

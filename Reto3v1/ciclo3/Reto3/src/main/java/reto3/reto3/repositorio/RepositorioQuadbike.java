@@ -5,24 +5,24 @@
  */
 package reto3.reto3.repositorio;
 
-import reto3.reto3.modelo.Cuatrimoto;
-import reto3.reto3.repositorios.crud.interfaceCuatrimoto;
+import reto3.reto3.modelo.Quadbike;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import reto3.reto3.repositorios.crud.interfaceQuadbike;
 
 @Repository
-public class RepositorioCuatrimoto {
+public class RepositorioQuadbike {
     @Autowired
-    private interfaceCuatrimoto crud;
-    public List<Cuatrimoto> getAll(){
-        return (List<Cuatrimoto>) crud.findAll();
+    private interfaceQuadbike crud;
+    public List<Quadbike> getAll(){
+        return (List<Quadbike>) crud.findAll();
     }
-   public Optional <Cuatrimoto> getCuatrimoto (int id){
+   public Optional <Quadbike> getCuatrimoto (int id){
        return crud.findById(id);
    } 
-   public Cuatrimoto save (Cuatrimoto cuatrimoto){
+   public Quadbike save (Quadbike cuatrimoto){
        return crud.save(cuatrimoto);
    }
    
