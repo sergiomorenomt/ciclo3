@@ -34,7 +34,7 @@ public class MessageWeb {
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Message  save(@RequestBody Message  message ){
-        return   servicios.save(message );
+    public void  save(@RequestBody Message  message ){
+        servicios.save(message );
     }    
 }

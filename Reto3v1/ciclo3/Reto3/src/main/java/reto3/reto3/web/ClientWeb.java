@@ -34,7 +34,7 @@ public class ClientWeb {
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client save(@RequestBody Client client){
-        return   servicios.save(client);
+    public void save(@RequestBody Client client){
+        servicios.save(client);
     }      
 }
