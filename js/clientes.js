@@ -1,14 +1,18 @@
+$(document).ready(function() {
+    consultarcliente() //Consulta de clientes
+})
+
 function guardarcliente(){
     let client = {
-        id: +$("#id_cliente").val(),
         name: $("#name_cliente").val(),
         email: $("#email_cliente").val(),
-        age: +$("#age_cliente").val()
+        age: +$("#age_cliente").val(),
+        password: $("#password_cliente").val()
     };
     
     if (validarCliente(client)){
         $.ajax({
-            url: url+"/ords/admin/client/client",
+            url: url+"/Client/save",
             type: 'POST',
             dataType: 'json',
             headers: {
@@ -36,11 +40,11 @@ function guardarcliente(){
 function consultarcliente(){
     $("#tabla_cliente").empty();
     $.ajax({
-        url: url+ "/ords/admin/client/client",
+        url: url+ "/Client/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            mostrarClientes(respuesta.items);
+            mostrarClientes(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -51,17 +55,17 @@ function consultarcliente(){
 function mostrarClientes(items){
     var tabla = `<table border="1">
                   <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age</th>
+                    
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
                     <th>Acciones</th>
+                    
                   </tr>`;
                   
     
     for (var i=0; i < items.length; i++) {
         tabla +=`<tr>
-                   <td>${items[i].id}</td>
                    <td>${items[i].name}</td>
                    <td>${items[i].email}</td>
                    <td>${items[i].age}</td>
@@ -156,8 +160,12 @@ function validarCliente(client){
     if (client.id<=0|| client.name===''|| client.email===''|| client.age<=0){
         alert("Procure no dejar campos vacíos\nEl id y la edad son números no negativos")
         return false;
-    }else if (client.email.length>20){
-        alert('Su correo es demasiado extenso. Debe tener 20 caracteres')
+    }else if (client.email.length>45){
+        alert('Su correo es demasiado extenso. Solamente puede tener hasta 45 caracteres')
+        return false;
+    }
+    else if (client.password.length>45){
+        alert('Su contraseña es demasiado extensa. Solamente puede tener hasta 45 caracteres')
         return false;
     }
     return true;
