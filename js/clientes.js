@@ -40,7 +40,7 @@ function guardarcliente(){
 function consultarcliente(){
     $("#tabla_cliente").empty();
     $.ajax({
-        url: url+ "/Client/all",
+        url: url+ "/api/Client/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
@@ -68,7 +68,7 @@ function mostrarClientes(items){
         tabla +=`<tr>
                    <td>${items[i].name}</td>
                    <td>${items[i].email}</td>
-                   <td>${items[i].age}</td>
+                   <td>${items[i].age} años</td>
                    <td>
                         <button onclick="eliminarCliente(${items[i].id})">Eliminar</button>
                         <a href="detalleCliente.html?id=${items[i].id}">Ver detalle</a>
@@ -107,10 +107,11 @@ function mostrarClienteUnico(item) {
 function actualizarCliente(){
 
     let client = {
-        id: +$("#id_cliente").val(),
+        
         name: $("#name_cliente").val(),
         email: $("#email_cliente").val(),
-        age: +$("#age_cliente").val()
+        age: +$("#age_cliente").val(),
+        password: $("#password_cliente").val()
     };
 
     console.log(client);
@@ -172,8 +173,8 @@ function validarCliente(client){
 }
 
 function limpiarCamposCliente(){
-    $("#id_cliente").val('');
     $("#name_cliente").val('');
     $("#email_cliente").val('');
     $("#age_cliente").val('');
+    $("#password_cliente").val('')
 }
