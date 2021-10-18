@@ -5,7 +5,7 @@
  */
 package reto3.reto3.web;
 
-import reto3.reto3.servicio.serviciosCategory;
+import reto3.reto3.servicio.ServiciosCategory;
 import reto3.reto3.modelo.Category;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/Category")
 public class CategoryWeb {
   @Autowired
-    private serviciosCategory servicios;
+    private ServiciosCategory servicios;
     @GetMapping ("/all")
     public List<Category> getCategory(){
      return servicios.getAll();

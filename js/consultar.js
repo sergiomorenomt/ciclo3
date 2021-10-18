@@ -1,3 +1,3 @@
 
-var url = "http://localhost:8080/api"
+var url = "http://localhost:8080"
 

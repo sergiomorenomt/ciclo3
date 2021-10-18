@@ -19,22 +19,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="usuario")
-public class Usuario implements Serializable{
+public class Admin implements Serializable{
 @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)     
-    private Integer idUsuario;
+    private Integer idAdmin;
     private String email;
     private String password;
 //@OneToMany(cascade =(CascadeType.PERSIST),mappedBy="usuario")
   //  @JsonIgnoreProperties("usuario")
     //private List<Client> client;   
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getIdAdmin() {
+        return idAdmin;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdAdmin(Integer idUsuario) {
+        this.idAdmin = idUsuario;
     }
 
     public String getEmail() {

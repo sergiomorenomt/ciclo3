@@ -13,7 +13,7 @@ import reto3.reto3.modelo.Score;
 import reto3.reto3.repositorio.RepositorioScore;
 
 @Service
-public class serviciosScore {
+public class ServiciosScore {
 
     @Autowired
     private RepositorioScore metodosCrud;

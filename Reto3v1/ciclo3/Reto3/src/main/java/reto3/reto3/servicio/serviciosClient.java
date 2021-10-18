@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import reto3.reto3.modelo.Client;
 import reto3.reto3.repositorio.RepositorioClient;
 @Service
-public class serviciosClient {
+public class ServiciosClient {
 @Autowired
     private RepositorioClient metodosCrud;
     

@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reto3.reto3.modelo.Reservation;
-import reto3.reto3.servicio.serviciosReservation;
+import reto3.reto3.servicio.ServiciosReservation;
 
 @RestController
 @RequestMapping("/api/Reservation")
 public class ReservationWeb {
 @Autowired
-    private serviciosReservation servicios;
+    private ServiciosReservation servicios;
     @GetMapping ("/all")
     public List<Reservation> getReservation(){
      return servicios.getAll();

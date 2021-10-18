@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reto3.reto3.modelo.Message;
-import reto3.reto3.servicio.serviciosMessage;
+import reto3.reto3.servicio.ServiciosMessage;
 
 @RestController
 @RequestMapping("/api/Message")
 public class MessageWeb {
     @Autowired
-    private serviciosMessage servicios;
+    private ServiciosMessage servicios;
     @GetMapping ("/all")
     public List<Message > getMessage (){
      return servicios.getAll();

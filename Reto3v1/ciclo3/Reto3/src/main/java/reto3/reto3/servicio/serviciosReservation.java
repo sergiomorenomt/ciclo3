@@ -13,7 +13,7 @@ import reto3.reto3.modelo.Reservation;
 import reto3.reto3.repositorio.RepositorioReservation;
 
 @Service
-public class serviciosReservation {
+public class ServiciosReservation {
  @Autowired
     private RepositorioReservation metodosCrud;
     

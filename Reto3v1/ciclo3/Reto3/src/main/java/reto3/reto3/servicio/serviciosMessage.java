@@ -13,7 +13,7 @@ import reto3.reto3.modelo.Message;
 import reto3.reto3.repositorio.RepositorioMessage;
 
 @Service
-public class serviciosMessage {
+public class ServiciosMessage {
     
 
  @Autowired

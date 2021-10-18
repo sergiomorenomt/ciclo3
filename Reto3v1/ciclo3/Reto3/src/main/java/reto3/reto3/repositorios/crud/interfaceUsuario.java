@@ -6,9 +6,9 @@
 package reto3.reto3.repositorios.crud;
 
 import org.springframework.data.repository.CrudRepository;
-import reto3.reto3.modelo.Usuario;
+import reto3.reto3.modelo.Admin;
 
 
-public interface interfaceUsuario extends CrudRepository<Usuario, Integer>{
+public interface interfaceUsuario extends CrudRepository<Admin, Integer>{
     
 }

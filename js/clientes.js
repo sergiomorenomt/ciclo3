@@ -12,7 +12,7 @@ function guardarcliente(){
     
     if (validarCliente(client)){
         $.ajax({
-            url: url+"/Client/save",
+            url: url+"/api/Client/save",
             type: 'POST',
             dataType: 'json',
             headers: {
