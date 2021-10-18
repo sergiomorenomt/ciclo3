@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reto3.reto3.modelo.Client;
 import reto3.reto3.servicio.ServiciosClient;
-@CrossOrigin(origins="http://127.0.0.1:5500")
+@CrossOrigin(origins="http://155.248.213.194")
 @RestController
 @RequestMapping("/api/Client")
 public class ClientWeb {
