@@ -10,12 +10,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import reto3.reto3.modelo.Message;
-import reto3.reto3.repositorios.crud.interfaceMessage;
+import reto3.reto3.repositorios.crud.InterfaceMessage;
 
 @Repository
 public class RepositorioMessage {
   @Autowired
-    private interfaceMessage crud;
+    private InterfaceMessage crud;
     public List<Message> getAll(){
         return (List<Message>) crud.findAll();
     }

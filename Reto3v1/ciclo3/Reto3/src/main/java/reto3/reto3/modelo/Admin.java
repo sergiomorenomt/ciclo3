@@ -18,16 +18,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuario")
+@Table(name="admin")
 public class Admin implements Serializable{
 @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)     
     private Integer idAdmin;
+    private String name;
     private String email;
-    private String password;
-//@OneToMany(cascade =(CascadeType.PERSIST),mappedBy="usuario")
-  //  @JsonIgnoreProperties("usuario")
-    //private List<Client> client;   
+    private String password; 
 
     public Integer getIdAdmin() {
         return idAdmin;
@@ -52,13 +50,14 @@ public class Admin implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-/*
-    public List<Client> getClient() {
-        return client;
+
+    public String getName() {
+        return name;
     }
 
-    public void setClient(List<Client> client) {
-        this.client = client;
+    public void setName(String name) {
+        this.name = name;
     }
-  */
+    
+    
 }

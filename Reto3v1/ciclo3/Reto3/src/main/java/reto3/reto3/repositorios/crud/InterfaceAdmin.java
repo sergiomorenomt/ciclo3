@@ -9,6 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 import reto3.reto3.modelo.Admin;
 
 
-public interface interfaceUsuario extends CrudRepository<Admin, Integer>{
+public interface InterfaceAdmin extends CrudRepository<Admin, Integer>{
     
 }

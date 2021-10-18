@@ -9,6 +9,6 @@ import reto3.reto3.modelo.Quadbike;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface interfaceQuadbike extends CrudRepository<Quadbike, Integer> {
+public interface InterfaceQuadbike extends CrudRepository<Quadbike, Integer> {
     
 }

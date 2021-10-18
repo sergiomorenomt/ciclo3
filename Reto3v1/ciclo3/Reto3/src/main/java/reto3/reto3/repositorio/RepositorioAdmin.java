@@ -10,16 +10,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import reto3.reto3.modelo.Admin;
-import reto3.reto3.repositorios.crud.interfaceUsuario;
+import reto3.reto3.repositorios.crud.InterfaceAdmin;
 
 @Repository
-public class RepositorioUsuario {
+public class RepositorioAdmin {
  @Autowired
-    private interfaceUsuario crud;
+    private InterfaceAdmin crud;
     public List<Admin> getAll(){
         return (List<Admin>) crud.findAll();
     }
-   public Optional <Admin> getUsuario(int idUsuario){
+   public Optional <Admin> getAdmin(int idUsuario){
        return crud.findById(idUsuario);
    } 
    public Admin save (Admin usuario){

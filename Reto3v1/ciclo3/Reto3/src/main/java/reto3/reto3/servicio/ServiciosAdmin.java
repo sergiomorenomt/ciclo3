@@ -10,28 +10,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reto3.reto3.modelo.Admin;
-import reto3.reto3.repositorio.RepositorioUsuario;
+import reto3.reto3.repositorio.RepositorioAdmin;
 
 @Service
 public class ServiciosAdmin {
     
 
     @Autowired
-    private RepositorioUsuario metodosCrud;
+    private RepositorioAdmin metodosCrud;
     
     public List<Admin> getAll(){
         return metodosCrud.getAll();
         
     }
-    public Optional<Admin> getUsuario(int id){
-        return metodosCrud.getUsuario(id);
+    public Optional<Admin> getAdmin(int id){
+        return metodosCrud.getAdmin(id);
     }
     public Admin save(Admin usuario){
         if (usuario.getIdAdmin()==null){
             return metodosCrud.save(usuario);
         }
         else{
-            Optional<Admin> evt=metodosCrud.getUsuario(usuario.getIdAdmin());
+            Optional<Admin> evt=metodosCrud.getAdmin(usuario.getIdAdmin());
             if(evt.get()!=null){
                 return metodosCrud.save(usuario);
             }else{
