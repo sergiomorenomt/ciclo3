@@ -8,6 +8,6 @@ package reto3.reto3.repositorios.crud;
 import org.springframework.data.repository.CrudRepository;
 import reto3.reto3.modelo.Reservation;
 
-public interface interfaceReservation extends CrudRepository<Reservation, Integer>{
+public interface InterfaceReservation extends CrudRepository<Reservation, Integer>{
     
 }

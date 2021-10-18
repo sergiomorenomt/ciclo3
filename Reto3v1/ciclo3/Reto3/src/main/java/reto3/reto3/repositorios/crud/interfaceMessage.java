@@ -8,7 +8,7 @@ package reto3.reto3.repositorios.crud;
 import org.springframework.data.repository.CrudRepository;
 import reto3.reto3.modelo.Message;
 
-public interface interfaceMessage extends CrudRepository<Message, Integer> {
+public interface InterfaceMessage extends CrudRepository<Message, Integer> {
 
     
 }

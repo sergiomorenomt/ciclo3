@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import reto3.reto3.repositorios.crud.interfaceQuadbike;
+import reto3.reto3.repositorios.crud.InterfaceQuadbike;
 
 @Repository
 public class RepositorioQuadbike {
     @Autowired
-    private interfaceQuadbike crud;
+    private InterfaceQuadbike crud;
     public List<Quadbike> getAll(){
         return (List<Quadbike>) crud.findAll();
     }

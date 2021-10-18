@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {"reto3.reto3"})
 public class Reto3Application {
+    
     @Autowired
     private RepositorioQuadbike repoCuatrimoto;
     public static void main(String[] args) {

@@ -6,17 +6,17 @@
 package reto3.reto3.repositorio;
 
 import reto3.reto3.modelo.Category;
-import reto3.reto3.repositorios.crud.interfaceCategory;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import reto3.reto3.repositorios.crud.InterfaceCategory;
 
 
 @Repository
 public class RepositorioCategory {
     @Autowired
-    private interfaceCategory crud;
+    private InterfaceCategory crud;
     public List<Category> getAll(){
         return (List<Category>) crud.findAll();
     }

@@ -9,6 +9,6 @@ import reto3.reto3.modelo.Category;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface interfaceCategory extends CrudRepository<Category, Integer>{
+public interface InterfaceCategory extends CrudRepository<Category, Integer>{
     
 }

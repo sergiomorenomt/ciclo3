@@ -11,12 +11,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import reto3.reto3.modelo.Client;
-import reto3.reto3.repositorios.crud.interfaceClient;
+import reto3.reto3.repositorios.crud.InterfaceClient;
 
 @Repository
 public class RepositorioClient {
    @Autowired
-    private interfaceClient crud;
+    private InterfaceClient crud;
     public List<Client> getAll(){
         return (List<Client>) crud.findAll();
     }

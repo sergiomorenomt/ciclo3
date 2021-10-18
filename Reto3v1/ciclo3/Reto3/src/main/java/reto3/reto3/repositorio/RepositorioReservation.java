@@ -10,12 +10,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import reto3.reto3.modelo.Reservation;
-import reto3.reto3.repositorios.crud.interfaceReservation;
+import reto3.reto3.repositorios.crud.InterfaceReservation;
 
 @Repository
 public class RepositorioReservation {
  @Autowired
-    private interfaceReservation crud;
+    private InterfaceReservation crud;
     public List<Reservation> getAll(){
         return (List<Reservation>) crud.findAll();
     }

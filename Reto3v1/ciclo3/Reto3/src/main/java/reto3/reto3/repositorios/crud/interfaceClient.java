@@ -9,6 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 import reto3.reto3.modelo.Client;
 
 
-public interface interfaceClient extends CrudRepository<Client, Integer>{
+public interface InterfaceClient extends CrudRepository<Client, Integer>{
     
 }

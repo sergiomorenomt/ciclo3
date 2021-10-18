@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reto3.Reto3.repositorio.crud;
+package reto3.reto3.repositorios.crud;
 
-import Reto3.Reto3.modelo.Cuatrimoto;
 import org.springframework.data.repository.CrudRepository;
+import reto3.reto3.modelo.Admin;
 
-/**
- *
- * @author v13
- */
-public interface interfaceCuatrimoto extends CrudRepository<Cuatrimoto, Integer> {
+
+public interface InterfaceAdmin extends CrudRepository<Admin, Integer>{
     
 }

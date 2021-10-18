@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author v13
  */
 @Service
-public class serviciosCategory {
+public class ServiciosCategory {
     
 
  @Autowired

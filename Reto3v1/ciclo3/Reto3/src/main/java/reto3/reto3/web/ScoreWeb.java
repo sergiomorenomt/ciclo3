@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reto3.reto3.modelo.Score;
-import reto3.reto3.servicio.serviciosScore;
+import reto3.reto3.servicio.ServiciosScore;
 
 @RestController
 @RequestMapping("/api/Score")
 public class ScoreWeb {
     @Autowired
-    private serviciosScore servicios;
+    private ServiciosScore servicios;
     @GetMapping ("/all")
     public List<Score> getScore(){
      return servicios.getAll();
