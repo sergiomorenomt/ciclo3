@@ -13,11 +13,15 @@
     <script type="text/javascript" src="js/consultar.js"></script>    
     <script type="text/javascript" src="js/cuatrimotos.js"></script>    
     <script type="text/javascript" src="js/clientes.js"></script> 
-    <script type="text/javascript" src="js/mensajes.js"></script>   
+    <script type="text/javascript" src="js/mensajes.js"></script>
+    <script type="text/javascript" src="js/categorias.js"></script>
+    <script type="text/javascript" src="js/reservaciones.js"></script>
+    <script type="text/javascript" src="js/usuariosadministrativos.js"></script>   
     <script src="js/index.js"></script>
 </head>
 
 <body>
+
 
     <div class="container-fluid bg-dark py-5 py-5">
       <div class="container text-white">
@@ -43,6 +47,22 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-4 bg-secondary">
+                    <h1 class="display-6 text-center">Usuarios Administradores</h1>
+                    <h4>Registrar un Usuario Administrador</h4>
+                    ID <input type="number" id="id_usuario"required /><br/>
+                    Name <input type="text" id="name_usuario" /> <br/>
+                    Email <input type="text" id="email_usuario" /> <br/>
+                    <button onclick="guardarusuario()">Guardar</button>
+    
+                    <h4>Usuarios Administradores</h4>
+                    
+                    <div id="tabla_usuario">
+                        
+                    </div>
+                </div>
+
             <div class="col-4 bg-light">
                 <h1 class="display-6 text-center">Cuatrimotos</h1>
                 <h4>Registra una cuatrimoto</h4>
@@ -60,6 +80,34 @@
                 </div>
             </div>
 
+            <h1> CATEGORIAS</h1>
+            <div id="resultado1"></div>
+            <button onclick="consultarcategoria()" > Consultar Categorias</button>
+            
+            <div>
+                <input type="text" id="Cname" placeholder="name">
+                <input type="text" id="Cdescription" placeholder="description">
+               
+                
+            </div>
+            <button onclick="guardarcategoria()">Guardar Categorias</button>
+
+            <h1> RESERVAS</h1>
+            <div id="tabla_reserva"></div>
+            <button onclick="consultarReserva()" > Consultar Reservas</button>
+            
+            <div>
+               ID RESERVATION <input type="number" id="id_Reservation" ><br/>
+               Start Date <input type="number" id="start_Date"/> <br/>
+               <!--Devolution Date <input type="number" id="devolution_Date"/> <br/>--> ingreso por sistema
+               ID Client <input type="number" id="id_cliente"/> <br/>
+               Name Client<input type="text" id="name_cliente"/> <br/> 
+               <button onclick="guardar()"> Guardar</button>
+               
+                
+            </div>
+            <button onclick="reservar()">Guardar Reservas</button>
+
             <div class="col-4 bg-secondary">
                 <h1 class="display-6 text-center">MENSAJES</h1>
                 <h4>Registra un mensaje</h4>
@@ -69,8 +117,7 @@
                 
                 <h4>Mensajes Registrados</h4>
                 <div id="tabla_mensaje">
-                    <!-- Esto es un comentario en html, y
-                    puede ser multilinea -->
+                 
                 </div>
             </div>
 

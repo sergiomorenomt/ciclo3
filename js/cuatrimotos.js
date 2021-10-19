@@ -12,7 +12,7 @@ function guardar(){
     console.log(cuatrimoto);
     if (validarCuatrimoto(cuatrimoto)){
         $.ajax({
-            url: url+"/ords/admin/quadbike/quadbike",
+            url: url,
             type: 'POST',
             dataType: 'json',
             headers: {

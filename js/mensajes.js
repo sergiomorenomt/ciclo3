@@ -5,7 +5,7 @@ function guardarMensaje(){
     }
     if(validarMensaje(message)){
         $.ajax({
-            url: url+"/ords/admin/message/message",
+            url: url,
             type: 'POST',
             dataType: 'json',
             headers: {
@@ -27,7 +27,7 @@ function guardarMensaje(){
 }
 function consultarMensajes(){
     $.ajax({
-        url: url+ "/ords/admin/message/message",
+        url: url,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
