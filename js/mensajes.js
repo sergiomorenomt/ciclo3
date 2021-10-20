@@ -5,7 +5,7 @@ function guardarMensaje(){
     }
     if(validarMensaje(message)){
         $.ajax({
-            url: url,
+            url: url + "/api/Message/save",
             type: 'POST',
             dataType: 'json',
             headers: {
@@ -27,12 +27,12 @@ function guardarMensaje(){
 }
 function consultarMensajes(){
     $.ajax({
-        url: url,
+        url: url + "//api/Message/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items)
-            mostrarMensajes(respuesta.items);
+            console.log(respuesta)
+            mostrarMensajes(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -81,7 +81,7 @@ function limpiarCamposMensaje(){
 
 function consultarMensajePorId(id){
     $.ajax({
-        url: url+ "/ords/admin/message/message/"+id,
+        url: url+ "//api/Message/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){

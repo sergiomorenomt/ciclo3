@@ -5,35 +5,34 @@
  */
 package com.retoquadbike.g33.modelo;
 
+//import Reto3.Reto3.modelo.Cuatrimoto;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+//import java.util.List;
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- * @author tatia
- */
-
 @Entity
-@Table(name = "usuariosadmin")
-public class Usuariosadmin implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUser;
-    private String email;
-    private String password;
+@Table(name="admin")
+public class Admin implements Serializable{
+@Id
+  @GeneratedValue(strategy=GenerationType.IDENTITY)     
+    private Integer idAdmin;
     private String name;
+    private String email;
+    private String password; 
 
-    public Integer getIdUser() {
-        return idUser;
+    public Integer getIdAdmin() {
+        return idAdmin;
     }
 
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setIdAdmin(Integer idUsuario) {
+        this.idAdmin = idUsuario;
     }
 
     public String getEmail() {
@@ -59,7 +58,6 @@ public class Usuariosadmin implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
     
     
 }

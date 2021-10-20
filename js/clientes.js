@@ -83,7 +83,7 @@ function mostrarClientes(items){
 
 function consultarClientePorId(id){
     $.ajax({
-        url: url+ "/ords/admin/client/client/"+id,
+        url: url+ "/api/Client/all"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
@@ -117,7 +117,7 @@ function actualizarCliente(){
     console.log(client);
     if (validarCliente(client)){
         $.ajax({
-            url: url+"/ords/admin/client/client",
+            url: url+"/api/Client/update",
             type: 'PUT',
             dataType: 'json',
             headers: {
@@ -139,7 +139,7 @@ function eliminarCliente(id){
     let opc = confirm('¿Está seguro que desea eliminar a ese cliente?')
     if(opc){
         $.ajax({
-            url: url+"/ords/admin/client/client",
+            url: url+"/api/Client",
             type: 'DELETE',
             dataType: 'json',
             headers: {
