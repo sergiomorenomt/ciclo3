@@ -39,7 +39,7 @@ function consultarReserva(){
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            mostrarReserva(respuesta.items);
+            mostrarReserva(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -149,7 +149,7 @@ function validarReserva(reserva){
 
 function consultarReservaPorId(id){
         $.ajax({
-            url: url+"/api/Reservation/all"+id,
+            url: url+"/api/Reservation/"+id,
             type: 'GET',
             dataType: 'json',
             success: function(respuesta){

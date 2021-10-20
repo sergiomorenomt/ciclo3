@@ -1,6 +1,6 @@
 function consultarcategoria(){
     $.ajax({
-        url: url+"/api/Category/all",
+        url: url + "/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -9,6 +9,8 @@ function consultarcategoria(){
         }
     });
 }
+
+
 
 function mostrarRespuestaCat(respuesta){
 

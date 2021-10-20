@@ -1,18 +1,45 @@
+var categorias = [] 
+$(document).ready(function(){
+    
+    $.ajax({
+        url: url + "/api/Category/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta);
+            categorias = respuesta
+            cargarCategorias(categorias);
+            consultar();
+        }
+    });
+
+})
+
+
+function cargarCategorias(categorias){
+    var opciones;
+    for (var i=0; i < categorias.length; i++) {
+        opciones +=`
+            <option value="${categorias[i].id}">${categorias[i].name}</option>`;
+    }
+    $("#category_id").html(opciones);
+}
+
 function guardar(){
     console.log("Ejecutando funcion para guardar");
 
     let cuatrimoto = {
-        id: +$("#id").val(),
         brand: $("#brand").val(),
-        model: +$("#model").val(),
-        category_id: +$("#category_id").val(),
-        name: $("#name").val()
+        year: +$("#year").val(),
+        category: {id:+$("#category_id").val()},
+        name: $("#name").val(),
+        description: $("#description").val()
     };
 
     console.log(cuatrimoto);
     if (validarCuatrimoto(cuatrimoto)){
         $.ajax({
-            url: url,
+            url: url + "/api/Quadbike/save",
             type: 'POST',
             dataType: 'json',
             headers: {
@@ -33,12 +60,12 @@ function guardar(){
 
 function consultar(){
     $.ajax({
-        url: url + "/ords/admin/quadbike/quadbike",
+        url: url + "/api/Quadbike/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarRespuesta(respuesta.items);
+            console.log(respuesta);
+            mostrarRespuesta(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
@@ -64,7 +91,7 @@ function mostrarRespuesta(items){
                    <td>${items[i].id}</td>
                    <td>${items[i].brand}</td>
                    <td>${items[i].model}</td>
-                   <td>${items[i].category_id}</td>
+                   <td>${items[i].category.name}</td>
                    <td>${items[i].name}</td>
                    <td>
                    <button onclick="eliminar(${items[i].id})">Eliminar</button>
@@ -91,7 +118,7 @@ function actualizar(){
     console.log(quadbike);
     if(validarCuatrimoto(quadbike)){
         $.ajax({
-            url: url+"/ords/admin/quadbike/quadbike",
+            url: url+"/api/Quadbike/update",
             type: 'PUT',
             dataType: 'json',
             headers: {
@@ -119,7 +146,7 @@ function eliminar(identificador){
         console.log(quadbike);
     
         $.ajax({
-            url: url+"/ords/admin/quadbike/quadbike",
+            url: url+"/api/Quadbike/",
             type: 'DELETE',
             dataType: 'json',
             headers: {

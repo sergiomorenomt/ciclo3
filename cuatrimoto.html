@@ -1,0 +1,52 @@
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/consultar.js"></script>    
+    <script type="text/javascript" src="js/cuatrimotos.js"></script>    
+    
+</head>
+
+<body>
+
+
+    <div class="container-fluid bg-dark py-5 py-5">
+      <div class="container text-white">
+        <h1 class="display-3 text-center"> <b> CUATRIMOTOS </b> </h1>
+      </div>
+    </div>
+    <div class="container-fluid bg-white py-5 py-5">
+        <div class="row">
+            <div class="col-4 bg-secondary">
+                <h1 class="display-12 text-center">Cuatrimotos</h1>
+                <h4>Registra una cuatrimoto</h4>
+                Brand <input type="text" id="brand"/> <br/>
+                Name <input type="text" id="name"/> <br/>
+                Year <input type="number" id="year"/> <br/> 
+                Description <input type="text" id="description"/> <br/>
+                Category <select id="category_id"></select> <br/>
+                 
+                
+                <button onclick="guardar()"> Guardar</button>
+
+                <h4>Moto Registrados</h4>
+                <div id="tabla">
+                    <!-- Esto es un comentario en html, y
+                    puede ser multilinea -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+</html>
