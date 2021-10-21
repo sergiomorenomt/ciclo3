@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/consultar.js"></script>
+    <script type="text/javascript" src="js/cuatrimotos.js"></script>
+    <script type="text/javascript" src="js/clientes.js"></script>
+    <script type="text/javascript" src="js/categorias.js"></script>
+    <script type="text/javascript" src="js/reservaciones.js"></script>
+    <script type="text/javascript" src="js/score.js"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid bg-dark py-5 py-5">
+        <div class="container text-white">
+            <h1 class="display-3 text-center"> <b> ALQUILER DE CUATRIMOTOS </b> </h1>
+        </div>
+    </div>
+    <div class="container-fluid bg-white py-5 py-5">
+
+        <div class="container-fluid bg-white py-5 py-5">
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-4 bg-light">
+                <h1> RESERVAS</h1>
+                
+                <button onclick="consultarReserva()"> Consultar Reservas</button>
+
+                <div>
+                    Quadbike <select id="name"></select> <br/>
+                    Start Date <input type="date" id="start_Date" /> <br />
+                    Devolution Date <input type="date" id="devolution_Date"/> <br/>
+                    Client <select id="id_Client"></select> <br/>
+                    <button onclick="reservar()"> Guardar</button>
+
+                </div>
+                <div id="tabla_reserva"></div>
+                <button onclick="reservar()">Guardar Reservas</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
