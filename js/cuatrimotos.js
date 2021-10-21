@@ -79,8 +79,8 @@ function mostrarRespuesta(items){
                   <tr>
                     <th>ID</th>
                     <th>brand</th>
-                    <th>MODEL</th>
-                    <th>CATEGORY_ID</th>
+                    <th>DESCRIPTION</th>
+                    <th>CATEGORY</th>
                     <th>NAME</th>
                     <th>ACCIONES</th>
                   </tr>`;
@@ -90,7 +90,7 @@ function mostrarRespuesta(items){
         tabla +=`<tr>
                    <td>${items[i].id}</td>
                    <td>${items[i].brand}</td>
-                   <td>${items[i].model}</td>
+                   <td>${items[i].description}</td>
                    <td>${items[i].category.name}</td>
                    <td>${items[i].name}</td>
                    <td>

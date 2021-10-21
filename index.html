@@ -130,11 +130,28 @@
                 Name Client<input type="text" id="name_cliente"/> <br/> 
                 <button onclick="reservar()"> Guardar</button>
                 
-                    
-                </div>
+            </div>
 
                 <button onclick="reservar()">Guardar Reservas</button>
             </div>
+
+            <div class="col-4 bg-light">
+                <h1> Calificación de las Reservas</h1>
+                <div id="tabla_score"></div>
+                <button onclick="consultarScore()" > Consultar Calificación</button>
+                
+                <div>
+                ID SCORE <input type="number" id="id_Score" ><br/>
+                ID RESERVA <input type="number" id="id_Reservation"/> <br/>
+                CALIFICACION <input type="number" id="Score_R"/> <br/>
+                MENSAJE<input type="text" id="message"/> <br/> 
+                <button onclick="calificar()"> Calificar</button>
+                
+            </div>
+
+                <button onclick="calificar()">Calificar Reserva</button>
+            </div>
+
         </div>
         
 

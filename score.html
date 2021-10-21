@@ -1,0 +1,62 @@
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    
+    <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/consultar.js"></script>    
+    <script type="text/javascript" src="js/cuatrimotos.js"></script>    
+    <script type="text/javascript" src="js/clientes.js"></script> 
+    <script type="text/javascript" src="js/categorias.js"></script>
+    <script type="text/javascript" src="js/reservaciones.js"></script>
+    <script type="text/javascript" src="js/score.js"></script>
+    
+</head>
+
+<body>
+
+
+    <div class="container-fluid bg-dark py-5 py-5">
+      <div class="container text-white">
+        <h1 class="display-3 text-center"> <b> ALQUILER DE CUATRIMOTOS </b> </h1>
+      </div>
+    </div>
+    <div class="container-fluid bg-white py-5 py-5">
+    
+        <div class="container-fluid bg-white py-5 py-5">
+            
+        </div>
+
+        <div class="row">
+
+                <div class="col-12 bg-light">
+                <h1> Calificación de las Reservas</h1>
+                <div id="tabla_score"></div>
+                <button onclick="consultarScore()" > Consultar Calificación</button>
+                
+                <div>
+                ID RESERVA <input type="number" id="id_Reservation"/> <br/>
+                CALIFICACION <input type="number" id="Score_R"/> <br/>
+                MENSAJE<input type="text" id="message"/> <br/> 
+                <button onclick="calificar()"> Calificar</button>
+                
+            </div>
+
+                <button onclick="calificar()">Calificar Reserva</button>
+            </div>
+
+        </div>
+        
+
+        
+    </div>
+</body>
+
+
+</html>
