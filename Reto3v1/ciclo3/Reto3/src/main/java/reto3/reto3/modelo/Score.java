@@ -22,7 +22,9 @@ public class Score implements Serializable {
     private String message;
 
     //@ManyToOne
-    @OneToOne(mappedBy = "score")
+    
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "reservation_id",referencedColumnName = "idReservation",unique=true)
     private Reservation reservation;
 
     public Integer getIdScore() {

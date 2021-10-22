@@ -1,4 +1,5 @@
 <html>
+
 <head>
 
     <!-- Required meta tags -->
@@ -6,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    
-    <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/consultar.js"></script>    
-    <script type="text/javascript" src="js/cuatrimotos.js"></script>    
-    <script type="text/javascript" src="js/clientes.js"></script> 
+    <script type="text/javascript" src="js/consultar.js"></script>
+    <script type="text/javascript" src="js/cuatrimotos.js"></script>
+    <script type="text/javascript" src="js/clientes.js"></script>
     <script type="text/javascript" src="js/mensajes.js"></script>
     <script type="text/javascript" src="js/categorias.js"></script>
     <script type="text/javascript" src="js/reservaciones.js"></script>
@@ -24,139 +25,28 @@
 
 
     <div class="container-fluid bg-dark py-5 py-5">
-      <div class="container text-white">
-        <h1 class="display-3 text-center"> <b> ALQUILER DE CUATRIMOTOS </b> </h1>
-      </div>
+        <div class="container text-white">
+            <h1 class="display-3 text-center"> <b> ALQUILER DE CUATRIMOTOS </b> </h1>
+        </div>
     </div>
-    <div class="container-fluid bg-white py-5 py-5">
-        <div class="row">
-            <div class="col-4 bg-secondary">
-                <h1 class="display-6 text-center">Clientes</h1>
-                <h4>Registrar un Cliente</h4>
-                ID <input type="number" id="id_cliente" /> <br/>
-                Name <input type="text" id="name_cliente" /> <br/>
-                Email <input type="text" id="email_cliente" /> <br/>
-                Age <input type="number" id="age_cliente" /> <br/>
-                Password <input type="text" id="password_cliente" /> <br/>
-                <button onclick="guardarcliente()">Guardar</button>
 
-                <h4>Clientes Registrados</h4>
-                
-                <div id="tabla_cliente">
-                    <!-- Esto es un comentario en html, y
-                    puede ser multilinea -->
-                </div>
-            </div>
 
-            
-            <div class="col-4 bg-light">
-                <h1 class="display-6 text-center">Usuarios Administradores</h1>
-                <h4>Registrar un Usuario Administrador</h4>
-                ID <input type="number" id="id_usuario"required /><br/>
-                Name <input type="text" id="name_usuario" /> <br/>
-                Email <input type="text" id="email_usuario" /> <br/>
-                <button onclick="guardarusuario()">Guardar</button>
-
-                <h4>Usuarios Administradores</h4>
-                
-                <div id="tabla_usuario">
-                    
-                </div>
-            </div>
-
-            <div class="col-4 bg-secondary">
-                <h1 class="display-6 text-center">Cuatrimotos</h1>
-                <h4>Registra una cuatrimoto</h4>
-                ID <input type="number" id="id"/> <br/>
-                Brand <input type="text" id="brand"/> <br/>
-                Model <input type="number" id="model"/> <br/>
-                Category_id <input type="number" id="category_id"/> <br/>
-                Name <input type="text" id="name"/> <br/> 
-                <button onclick="guardar()"> Guardar</button>
-
-                <h4>Moto Registrados</h4>
-                <div id="tabla">
-                    <!-- Esto es un comentario en html, y
-                    puede ser multilinea -->
-                </div>
-            </div>
-
-        </div>
-
-        <div class="container-fluid bg-white py-5 py-5">
-            
-        </div>
-
-        <div class="row">
-
-            
-            <div class="col-4 bg-light">
-                <h1 class="display-6 text-center">MENSAJES</h1>
-                <h4>Registra un mensaje</h4>
-                ID <input type="number" id="id_mensaje" /> <br/>
-                Messagetext <input type="text" id="name_mensaje" /> <br>
-                <button onclick="guardarMensaje()">Guardar</button>
-                
-                <h4>Mensajes Registrados</h4>
-                <div id="tabla_mensaje">
-                 
-                </div>
-            </div>
-
-            <div class="col-4 bg-secondary">
-                <h1> CATEGORIAS</h1>
-                <div id="resultado1"></div>
-                <button onclick="consultarcategoria()" > Consultar Categorias</button>
-                
-                <div>
-                    <input type="text" id="Cname" placeholder="name">
-                    <input type="text" id="Cdescription" placeholder="description">
-                
-                    
-                </div>
-                <button onclick="guardarcategoria()">Guardar Categorias</button>
-            </div>
-
-            <div class="col-4 bg-light">
-                <h1> RESERVAS</h1>
-                <div id="tabla_reserva"></div>
-                <button onclick="consultarReserva()" > Consultar Reservas</button>
-                
-                <div>
-                ID RESERVATION <input type="number" id="id_Reservation" ><br/>
-                Start Date <input type="number" id="start_Date"/> <br/>
-                <!--Devolution Date <input type="number" id="devolution_Date"/> <br/>--> ingreso por sistema
-                ID Client <input type="number" id="id_cliente"/> <br/>
-                Name Client<input type="text" id="name_cliente"/> <br/> 
-                <button onclick="reservar()"> Guardar</button>
-                
-            </div>
-
-                <button onclick="reservar()">Guardar Reservas</button>
-            </div>
-
-            <div class="col-4 bg-light">
-                <h1> Calificación de las Reservas</h1>
-                <div id="tabla_score"></div>
-                <button onclick="consultarScore()" > Consultar Calificación</button>
-                
-                <div>
-                ID SCORE <input type="number" id="id_Score" ><br/>
-                ID RESERVA <input type="number" id="id_Reservation"/> <br/>
-                CALIFICACION <input type="number" id="Score_R"/> <br/>
-                MENSAJE<input type="text" id="message"/> <br/> 
-                <button onclick="calificar()"> Calificar</button>
-                
-            </div>
-
-                <button onclick="calificar()">Calificar Reserva</button>
-            </div>
-
-        </div>
-        
-
-        
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+        </button>
+        <ul class="dropdown" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="cliente.html">Cliente</a></li>
+            <li><a class="dropdown-item" href="admin.html">Usuarios administradores</a></li>
+            <li><a class="dropdown-item" href="cuatrimoto.html">Cuatrimotos</a></li>
+            <li><a class="dropdown-item" href="mensaje.html">Mensajes</a></li>
+            <li><a class="dropdown-item" href="categorias.html">Categorias</a></li>
+            <li><a class="dropdown-item" href="reservas.html">Reservas</a></li>
+            <li><a class="dropdown-item" href="score.html">Calificación Reservas</a></li>
+        </ul>
     </div>
+
 </body>
 
 

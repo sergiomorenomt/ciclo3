@@ -139,7 +139,7 @@ function eliminarCliente(id){
     let opc = confirm('¿Está seguro que desea eliminar a ese cliente?')
     if(opc){
         $.ajax({
-            url: url+"/ords/admin/client/client",
+            url: url+"/api/Client/"+id,
             type: 'DELETE',
             dataType: 'json',
             headers: {
