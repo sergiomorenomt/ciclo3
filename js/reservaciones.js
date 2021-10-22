@@ -84,6 +84,7 @@ function consultarReserva() {
         type: 'GET',
         dataType: 'json',
         success: function (respuesta) {
+            console.log (respuesta)
             mostrarReserva(respuesta);
         },
         error: function (xhr, status) {
@@ -167,13 +168,13 @@ function eliminarReserva(idReservation) {
     let opc = confirm('¿Está seguro que desea eliminar la reserva?')
     if (opc) {
         $.ajax({
-            url: url + "/api/Reservation/{id}",
+            url: url + "/api/Reservation/"+idReservation,
             type: 'DELETE',
             dataType: 'json',
             headers: {
                 "Content-Type": "application/json"
             },
-            data: JSON.stringify({ id: id }),
+            data: JSON.stringify({ id: idReservation }),
             statusCode: {
                 204: function () {
                     alert('Se ha eliminado la reserva');

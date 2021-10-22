@@ -12,11 +12,8 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/consultar.js"></script>
-    <script type="text/javascript" src="js/cuatrimotos.js"></script>
     <script type="text/javascript" src="js/clientes.js"></script>
-    <script type="text/javascript" src="js/categorias.js"></script>
-    <script type="text/javascript" src="js/reservaciones.js"></script>
-    <script type="text/javascript" src="js/score.js"></script>
+    <script type="text/javascript" src="js/mensajes.js"></script>
 
 </head>
 
@@ -35,20 +32,17 @@
         <div class="row">
 
             <div class="col-4 bg-light">
-                <h1> RESERVAS</h1>
-                
-                <button onclick="consultarReserva()"> Consultar Reservas</button>
+                <h1 class="display-6 text-center">MENSAJES</h1>
+                <h4>Registra un mensaje</h4>
+                Client <select id="id_Client"></select> <br/>
+                Quadbike <select id="name"></select> <br/>
+                Messagetext <input type="text" id="name_mensaje" /> <br>
+                <button onclick="guardarMensaje()">Guardar</button>
 
-                <div>
-                    Quadbike <select id="name"></select> <br/>
-                    Start Date <input type="date" id="start_Date" /> <br />
-                    Devolution Date <input type="date" id="devolution_Date"/> <br/>
-                    Client <select id="id_Client"></select> <br/>
-                    <button onclick="reservar()">Guardar Reservas</button>
+                <h4>Mensajes Registrados</h4>
+                <div id="tabla_mensaje">
 
                 </div>
-                <div id="tabla_reserva"></div>
-                
             </div>
         </div>
     </div>

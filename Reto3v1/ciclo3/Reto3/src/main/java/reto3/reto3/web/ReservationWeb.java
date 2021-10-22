@@ -31,7 +31,7 @@ public class ReservationWeb {
     public List<Reservation> getReservation(){
      return servicios.getAll();
     }
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<Reservation> getReservation(@PathVariable("id")int idReservation){
         return servicios.getReservation(idReservation);
     }

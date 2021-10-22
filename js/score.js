@@ -13,8 +13,8 @@ function consultarReservaPorId(id){
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items)
-            mostrarReservaUnica(respuesta.items[0]);
+            console.log(respuesta)
+            mostrarReservaUnica(respuesta);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');

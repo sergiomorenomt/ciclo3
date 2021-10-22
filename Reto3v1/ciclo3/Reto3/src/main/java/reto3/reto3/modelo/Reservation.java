@@ -25,7 +25,7 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
-    private Date starDate;
+    private Date startDate;
     private Date devolutionDate;
     private String status = "created";
 
@@ -41,8 +41,8 @@ public class Reservation implements Serializable {
 
     //@OneToMany(cascade = (CascadeType.PERSIST), mappedBy = "reservation")
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "score_id",referencedColumnName = "idScore",unique=true)
+    @OneToOne(mappedBy = "reservation")
+    
     private Score score;
 
     public Integer getIdReservation() {
@@ -53,14 +53,16 @@ public class Reservation implements Serializable {
         this.idReservation = idReservation;
     }
 
-    public Date getStarDate() {
-        return starDate;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStarDate(Date starDate) {
-        this.starDate = starDate;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
+    
+    
     public Date getDevolutionDate() {
         return devolutionDate;
     }

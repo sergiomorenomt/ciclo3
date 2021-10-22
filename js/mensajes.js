@@ -1,7 +1,54 @@
+var clientes = []
+$(document).ready(function () {
+
+    $.ajax({
+        url: url + "/api/Client/all",
+        type: "GET",
+        datatype: "JSON",
+        success: function (respuesta) {
+            console.log(respuesta);
+            clientes = respuesta
+            cargarClientes(clientes);
+            
+        }
+    });
+    $.ajax({
+        url: url + "/api/Quadbike/all",
+        type: "GET",
+        datatype: "JSON",
+        success: function (respuesta) {
+            console.log(respuesta);
+            cuatrimotos = respuesta
+            cargarQuadbike(cuatrimotos);
+        }
+    });
+    consultarMensajes()
+})
+
+function cargarClientes(clientes) {
+    var opciones;
+    for (var i = 0; i < clientes.length; i++) {
+        opciones += `
+            <option value="${clientes[i].idClient}">${clientes[i].name}</option>`;
+    }
+    $("#id_Client").html(opciones);
+}
+
+function cargarQuadbike(cuatrimotos) {
+    var opciones;
+    for (var i = 0; i < cuatrimotos.length; i++) {
+        opciones += `
+            <option value="${cuatrimotos[i].id}">${cuatrimotos[i].name}</option>`;
+    }
+    $("#name").html(opciones);
+}
+
 function guardarMensaje(){
     let message ={
-        id : +$("#id_mensaje").val(),
-        messagetext: $("#name_mensaje").val(),
+        
+        messageText: $("#name_mensaje").val(),
+        quadbike: { id: +$("#name").val() }, //id de la cuatrimoto 
+        client: { idClient: +$("#id_Client").val() },
     }
     if(validarMensaje(message)){
         $.ajax({
@@ -27,21 +74,19 @@ function guardarMensaje(){
 }
 function consultarMensajes(){
     $.ajax({
-        url: url + "//api/Message/all",
+        url: url + "/api/Message/all",
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
             console.log(respuesta)
             mostrarMensajes(respuesta);
-        },
-        error: function (xhr, status) {
-            alert('ha sucedido un problema');
         }
+        
     });
 }
 
 function validarMensaje(message){
-    if(message.id<=0 || message.messagetext===''){
+    if(message.id<=0 || message.messageText===''){
         alert("Procure no dejar campos vacíos\nEl id es un número positivo");
         return false;
     }
@@ -52,7 +97,9 @@ function mostrarMensajes(items){
     $("#tabla_mensaje").empty()
     var tabla = `<table border="1">
                   <tr>
-                    <th>ID</th>
+                    
+                    <th>CLIENT</th>
+                    <th>QUADBIKE</th>
                     <th>Message</th>
                     <th>Acciones</th>
                   </tr>`;
@@ -60,8 +107,13 @@ function mostrarMensajes(items){
     
     for (var i=0; i < items.length; i++) {
         tabla +=`<tr>
-                   <td>${items[i].id}</td>
-                   <td>${items[i].messagetext}</td>
+                   
+                   <td>${items[i].client.name}</td>
+                   <td>${items[i].quadbike.name}</td>
+                   <td>${items[i].messageText}</td>
+
+
+
                    <td>
                         <button onclick="eliminarMensaje(${items[i].id})">Eliminar</button>
                         <a href="detalleMensaje.html?id=${items[i].id}">Ver detalle</a>
@@ -81,7 +133,7 @@ function limpiarCamposMensaje(){
 
 function consultarMensajePorId(id){
     $.ajax({
-        url: url+ "//api/Message/"+id,
+        url: url+ "/api/Message/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
@@ -98,17 +150,17 @@ function consultarMensajePorId(id){
 function mostrarMensajeUnico(item){
     console.log("item",item)
     $("#id_mensaje").val(item.id);
-    $("#name_mensaje").val(item.messagetext);
+    $("#name_mensaje").val(item.messageText);
 }
 
 function actualizarMensaje(){
     let message ={
         id : +$("#id_mensaje").val(),
-        messagetext: $("#name_mensaje").val(),
+        messageText: $("#name_mensaje").val(),
     }
     if(validarMensaje(message)){
         $.ajax({
-            url: url+"/ords/admin/message/message",
+            url: url+"/api/Message/update",
             type: 'PUT',
             dataType: 'json',
             headers: {
@@ -132,7 +184,7 @@ function eliminarMensaje(id){
     let opc = confirm('¿Está seguro que desea eliminar a ese mensaje?')
     if(opc){
         $.ajax({
-            url: url+"/ords/admin/message/message",
+            url: url+"/api/Message/"+id,
             type: 'DELETE',
             dataType: 'json',
             headers: {
