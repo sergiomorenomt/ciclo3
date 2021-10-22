@@ -146,7 +146,7 @@ function eliminar(identificador){
         console.log(quadbike);
     
         $.ajax({
-            url: url+"/api/Quadbike/",
+            url: url+"/api/Quadbike/"+identificador,
             type: 'DELETE',
             dataType: 'json',
             headers: {
