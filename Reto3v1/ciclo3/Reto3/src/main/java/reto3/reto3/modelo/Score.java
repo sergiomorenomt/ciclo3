@@ -39,18 +39,18 @@ public class Score implements Serializable {
         return score;
     }
 
-    public void setCalificacion(Integer calificacion) {
-        this.score = calificacion;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMensaje(String mensaje) {
-        this.message = mensaje;
+    public void setMessage(String message) {
+        this.message = message;
     }
-    
+
     public Reservation getReservation() {
         return reservation;
     }
@@ -58,6 +58,7 @@ public class Score implements Serializable {
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
+
     
 
 }

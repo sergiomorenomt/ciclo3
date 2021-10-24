@@ -31,13 +31,14 @@ public class MessageWeb {
     public List<Message > getMessage (){
      return servicios.getAll();
     }
-    @GetMapping("/(id)")
-    public Optional<Message > getCuatrimoto(@PathVariable("idMessage")int idMessage){
+    @GetMapping("/{id}")
+    public Optional<Message > getQuadbike(@PathVariable("idMessage")int idMessage){
         return servicios.getMessage (idMessage);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void  save(@RequestBody Message  message ){
-        servicios.save(message );
-    }    
+    public Message save(@RequestBody Message  message ){
+        return servicios.save(message );    
+    
+}
 }

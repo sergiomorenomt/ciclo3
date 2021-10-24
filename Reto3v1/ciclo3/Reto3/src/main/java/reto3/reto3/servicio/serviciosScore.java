@@ -39,4 +39,27 @@ public class ServiciosScore {
             }
         }
     }
+
+    public Score update(Score score){
+        if(score.getIdScore()!=null){
+            Optional<Score>g=metodosCrud.getScore(score.getIdScore());
+            if(!g.isEmpty()){
+                if(score.getScore()!=null){
+                    g.get().setScore(score.getScore());
+                }
+                if(score.getMessage()!=null){
+                    g.get().setMessage(score.getMessage());
+                }
+                return metodosCrud.save(g.get());
+            }
+        }
+        return score;
+    }
+    public boolean deletescore(int idScore){
+        Boolean d=getScore(idScore).map(score -> {
+            metodosCrud.delete(score);
+            return true;
+        }).orElse(false);
+        return d;
+    }
 }

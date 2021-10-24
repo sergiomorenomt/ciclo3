@@ -34,14 +34,14 @@ public class ClientWeb {
     public List<Client> getClient(){
      return servicios.getAll();
     }
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<Client> getClient(@PathVariable("id")int idClient){
         return servicios.getClient(idClient);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody Client client){
-        servicios.save(client);
+    public Client save(@RequestBody Client client) {
+        return servicios.save(client);
     } 
     
      @PutMapping("/update")
@@ -52,7 +52,7 @@ public class ClientWeb {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int clientId) {
-        return servicios.deleteClient(clientId);
+    public boolean delete(@PathVariable("id") int idClient) {
+        return servicios.deleteClient(idClient);
     }
 }

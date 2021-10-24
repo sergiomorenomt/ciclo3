@@ -15,15 +15,15 @@ import javax.persistence.Table;
 
 /**
  *
- * @author v13
+ * @author tatianad
  */
 @Entity
-@Table(name = "quadbike")
+@Table(name = "quadbike") //contiene todos los atributos que identifican la cuatrimoto//
 public class Quadbike implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id; 
     private String name;
     private String brand;
     private Integer year;
@@ -35,12 +35,13 @@ public class Quadbike implements Serializable {
     private Category category;
 
     @OneToMany(cascade = (CascadeType.PERSIST), mappedBy = "quadbike")
-    @JsonIgnoreProperties("quadbike")
+    @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
 
     @OneToMany(cascade = (CascadeType.PERSIST), mappedBy = "quadbike")
-    @JsonIgnoreProperties("quadbike")
+    @JsonIgnoreProperties({"quadbike", "client"})
     private List <Reservation> reservations;
+
     public Integer getId() {
         return id;
     }
@@ -97,12 +98,12 @@ public class Quadbike implements Serializable {
         this.messages = messages;
     }
 
-    public List <Reservation> getReservations() {
+    public List<Reservation> getReservations() {
         return reservations;
     }
 
-    public void setReservations(List <Reservation> reservations) {
+    public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-
+   
 }

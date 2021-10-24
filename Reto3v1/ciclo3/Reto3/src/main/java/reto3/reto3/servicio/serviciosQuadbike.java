@@ -24,22 +24,62 @@ public class ServiciosQuadbike {
         return metodosCrud.getAll();
         
     }
-    public Optional<Quadbike> getCuatrimoto(int id){
-        return metodosCrud.getCuatrimoto(id);
+    public Optional<Quadbike> getQuadbike(int id){
+        return metodosCrud.getQuadbike(id);
     }
-    public Quadbike save(Quadbike cuatrimoto){
-        if (cuatrimoto.getId()==null){
-            return metodosCrud.save(cuatrimoto);
+    public Quadbike save(Quadbike quadbike){
+        if (quadbike.getId()==null){
+            return metodosCrud.save(quadbike);
         }
         else{
-            Optional<Quadbike> evt=metodosCrud.getCuatrimoto(cuatrimoto.getId());
+            Optional<Quadbike> evt=metodosCrud.getQuadbike(quadbike.getId());
             if(evt.get()!=null){
-                return metodosCrud.save(cuatrimoto);
+                return metodosCrud.save(quadbike);
             }else{
-                return cuatrimoto;
+                return quadbike;
             }
-        }
+        } 
             
     }
+public Quadbike update(Quadbike quadbike){
+        if(quadbike.getId()!=null){
+            Optional<Quadbike> e=metodosCrud.getQuadbike(quadbike.getId());
+            if(!e.isEmpty()){
+                if(quadbike.getName()!=null){
+                    e.get().setName(quadbike.getName());
+                }
+                if(quadbike.getBrand()!=null){
+                    e.get().setBrand(quadbike.getBrand());
+                }
+                if(quadbike.getYear()!=null){
+                    e.get().setYear(quadbike.getYear());
+                }
+                if(quadbike.getDescription()!=null){
+                    e.get().setDescription(quadbike.getDescription());
+                }
+                if(quadbike.getCategory()!=null){
+                    e.get().setCategory(quadbike.getCategory());
+                }
+                metodosCrud.save(e.get());
+                return e.get();
+            }else{
+                return quadbike;
+            }
+        }else{
+            return quadbike;
+        }
+    }
 
+
+    public boolean deleteQuadbike(int quadbikeId) {
+        Boolean aBoolean = getQuadbike(quadbikeId).map(quadbike -> {
+            metodosCrud.delete(quadbike);
+            return true;
+        }).orElse(false);
+        return aBoolean;
+    }
 }
+
+
+
+   

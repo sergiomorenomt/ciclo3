@@ -31,14 +31,14 @@ public class AdminWeb {
     public List<Admin> getAdmin(){
      return servicios.getAll();
     }
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<Admin> getAdmin(@PathVariable("id")int idAdmin){
         return servicios.getAdmin(idAdmin);
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody Admin usuario){
-        servicios.save(usuario);
+    public Admin save(@RequestBody Admin usuario){
+        return servicios.save(usuario);
     }    
     
     

@@ -40,8 +40,6 @@ public class Category implements  Serializable {
         this.id = id;
     }
 
-   
-
     public String getName() {
         return name;
     }
@@ -65,6 +63,8 @@ public class Category implements  Serializable {
     public void setQuadbikes(List<Quadbike> quadbikes) {
         this.quadbikes = quadbikes;
     }
+
+    
 
     
    
