@@ -138,7 +138,7 @@ function eliminarScore(idScore){
     let opc = confirm('¿Está seguro que desea eliminar la calificación?')
     if(opc){
         $.ajax({
-            url: url+"/api/Score/{id}",
+            url: url+"/api/Score/"+idScore,
             type: 'DELETE',
             dataType: 'json',
             headers: {

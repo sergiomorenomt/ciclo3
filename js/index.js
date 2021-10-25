@@ -5,4 +5,5 @@ $(document).ready(function () {
     consultarcategoria() //Consulta de mensajes
     consultarReserva() //Consulta de reservas
     consultarAdmin() // Consulta de usuarios administrativos
+    consultarScore() // Consulta de calificación
 });

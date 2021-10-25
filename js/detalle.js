@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 function consultarById(id){
     $.ajax({
-        url: url+"/ords/admin/quadbike/quadbike/"+id,
+        url: url+"/api/Quadbike/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
