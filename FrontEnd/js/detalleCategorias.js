@@ -26,7 +26,7 @@ $(document).ready(function () {
 
 function consultarById(id){
     $.ajax({
-        url: url+"/api/Quadbike/"+id,
+        url: url+"/api/Category/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
@@ -35,7 +35,7 @@ function consultarById(id){
                 llenarDatos(respuesta);
             }else{
                 $("#boton").hide();
-                alert('No se encuentra la cuatrimoto con el id '+id);
+                alert('No se encuentra la categoria con el id '+id);
             }
         },
         error: function (xhr, status) {
@@ -46,8 +46,7 @@ function consultarById(id){
 
 function llenarDatos(item){
     $("#id").val(item.id);
-    $("#brand").val(item.brand);
-    $("#year").val(item.year);
-    $("#category_id").val(item.category_id);
+    $("#description").val(item.description);
     $("#name").val(item.name);
+   
 }

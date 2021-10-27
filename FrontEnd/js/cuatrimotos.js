@@ -82,6 +82,7 @@ function mostrarRespuesta(items){
                     <th>DESCRIPTION</th>
                     <th>CATEGORY</th>
                     <th>NAME</th>
+                    <th>MODELO</th>
                     <th>ACCIONES</th>
                   </tr>`;
                   
@@ -93,6 +94,7 @@ function mostrarRespuesta(items){
                    <td>${items[i].description}</td>
                    <td>${items[i].category.name}</td>
                    <td>${items[i].name}</td>
+                   <td>${items[i].year}</td>
                    <td>
                    <button onclick="eliminar(${items[i].id})">Eliminar</button>
                    <a href="detalle.html?id=${items[i].id}">Editar</a>
@@ -110,7 +112,7 @@ function actualizar(){
     let quadbike = {
         id: +$("#id").val(),
         brand: $("#brand").val(),
-        model: +$("#model").val(),
+        year: +$("#year").val(),
         category_id: $("#category_id").val(),
         name: $("#name").val()
     };
@@ -128,7 +130,7 @@ function actualizar(){
             statusCode:{
                 201:function(){
                     alert('Se ha actualizado la informacion de la cuatrimoto');
-                    window.location.assign("index.html");
+                    window.location.assign("cuatrimoto.html");
                 }
             },
         });
@@ -146,7 +148,7 @@ function eliminar(identificador){
         console.log(quadbike);
     
         $.ajax({
-            url: url+"/api/Quadbike/",
+            url: url+"/api/Quadbike/"+identificador,
             type: 'DELETE',
             dataType: 'json',
             headers: {
