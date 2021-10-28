@@ -86,7 +86,7 @@ function consultarMensajes(){
 }
 
 function validarMensaje(message){
-    if(message.id<=0 || message.messageText===''){
+    if(message.idMessage<=0 || message.messageText===''){
         alert("Procure no dejar campos vacíos\nEl id es un número positivo");
         return false;
     }
@@ -95,7 +95,7 @@ function validarMensaje(message){
 
 function mostrarMensajes(items){
     $("#tabla_mensaje").empty()
-    var tabla = `<table border="1">
+    var tabla = `<table class="table">
                   <tr>
                     
                     <th>CLIENT</th>
@@ -115,8 +115,8 @@ function mostrarMensajes(items){
 
 
                    <td>
-                        <button onclick="eliminarMensaje(${items[i].id})">Eliminar</button>
-                        <a href="detalleMensaje.html?id=${items[i].id}">Ver detalle</a>
+                        <button onclick="eliminarMensaje(${items[i].idMessage})">Eliminar</button>
+                        <a href="detalleMensaje.html?id=${items[i].idMessage}">Ver detalle</a>
                    </td> 
                 </tr>`;
     }
@@ -154,10 +154,12 @@ function mostrarMensajeUnico(item){
 }
 
 function actualizarMensaje(){
+    console.log("ejecutando funcion para actualizar");
     let message ={
-        id : +$("#id_mensaje").val(),
+        idMessage : +$("#id_mensaje").val(),
         messageText: $("#name_mensaje").val(),
-    }
+    };
+    console.log(message);
     if(validarMensaje(message)){
         $.ajax({
             url: url+"/api/Message/update",
@@ -170,7 +172,7 @@ function actualizarMensaje(){
             statusCode:{
                 201:function(){
                     alert('Se ha actualizado el mensaje');
-                    window.location.assign('index.html')
+                    window.location.assign('mensaje.html');
                 },
                 555:function(){
                     alert('Error al actualizar')
@@ -180,24 +182,32 @@ function actualizarMensaje(){
     }
 }
 
-function eliminarMensaje(id){
-    let opc = confirm('¿Está seguro que desea eliminar a ese mensaje?')
-    if(opc){
+function eliminarMensaje(identificador){
+    console.log("ejecutando funcion para eliminar");
+    let opc = confirm('¿Está seguro que desea eliminar este mensaje?')
+    if (opc){
+        let message = {
+            id: +identificador
+        };
+    
+        console.log(message);
+    
         $.ajax({
-            url: url+"/api/Message/"+id,
+            url: url+"/api/Message/"+identificador,
             type: 'DELETE',
             dataType: 'json',
             headers: {
                 "Content-Type": "application/json"
             },
-            data: JSON.stringify({id:id}),
+            data: JSON.stringify(message),
             statusCode:{
                 204:function(){
                     alert('Se ha eliminado el mensaje');
-                    consultarMensajes()
+                    consultarMensajes();
                 }
             },
         });
     }
+    
 
 }

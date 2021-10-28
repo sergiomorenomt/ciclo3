@@ -8,14 +8,14 @@ $(document).ready(function () {
 });
 
 function consultarMensajePorId(id){
-    $.ajax({
+ $.ajax({
         url: url+"/api/Message/"+id,
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            if (respuesta.items.length==1){
-                llenarDatos(respuesta.items[0]);
+            console.log(respuesta);
+            if (respuesta.idMessage>0){
+                llenarDatos(respuesta);
             }else{
                 $("#boton").hide();
                 alert('No se encuentra el mensaje con el id '+id);
@@ -26,3 +26,8 @@ function consultarMensajePorId(id){
         }
     });
 }
+function llenarDatos(item){
+    $("#id_mensaje").val(item.idMessage);
+    $("#name_mensaje").val(item.messageText);
+ 
+    }

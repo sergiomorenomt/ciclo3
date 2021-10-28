@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CSS -->
-        
+
         <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
-    
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/consultar.js"></script>
         <script type="text/javascript" src="js/detalleCategorias.js"></script>
@@ -16,9 +16,9 @@
     </head>
     <body>
         <div class="container-fluid bg-dark py-5 py-5">
-        <div class="container text-white">
-            <h1 class="display-3 text-center"> <b> CATEGORIAS </b> </h1>
-        </div>
+            <div class="container text-white">
+                <h1 class="display-3 text-center"> <b> CATEGORIAS </b> </h1>
+            </div>
         </div>
 
         <div class="row g-3 bg-laigh py-3">
@@ -41,12 +41,15 @@
                     <input type="text" class="form-control" id="name" /> <br/>
                 </div>
                 <button id="boton" class="btn btn-primary" onclick="actualizar()">Actualizar</button>
-                </div>
-                <div class="col-md-6">
-                    
-                </div>
-            </form>
-            <a class="btn btn-primary" href="categorias.html">Regresar</a>  
+            </form></div>
+        <div class="col-md-6">
+
         </div>
+
+        <a class="btn btn-primary" href="categorias.html">Regresar</a>  
+
     </body>
+<script>$("#boton").click(function(e){
+e.preventDefault();
+})</script>    
 </html>
