@@ -1,20 +1,52 @@
 <html>
 
-<head>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/consultar.js"></script>
-    <script src="js/mensajes.js"></script>
-    <script src="js/detalleMensajes.js"></script>
-    <title>Detalle clientes</title>
-</head>
+    <head>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.css" type="text/css"/>
 
-<body>
-    <h1>Clientes</h1>
-    <h4>Registrar un Cliente</h4>
-    ID <input type="number" id="id_mensaje" disabled/> <br/>
-    Messagetext <input type="text" id="name_mensaje" /> <br>
-    <button onclick="actualizarMensaje()">Actualizar</button>
-    <a href="index.html">Volver al inicio</a>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="js/consultar.js"></script>
+        <script type="text/javascript" src="js/cuatrimotos.js"></script>
+        <script type="text/javascript" src="js/clientes.js"></script>
+        <script type="text/javascript" src="js/mensajes.js"></script>
+        <script type="text/javascript" src="js/detalleMensajes.js"></script>
+
+        <title>Detalle Mensajes</title>
+    </head>
+
+    <body>
+        <div class="container-fluid bg-dark py-5 py-5">
+            <div class="container text-white">
+                <h1 class="display-3 text-center"> <b> Mensajes </b> </h1>
+            </div>
+        </div>
+
+        <div class="row g-3 bg-laigh py-3">
+            <div class="col-md-3">
+                <h1 class="display-12 text-center">Detalle</h1>
+            </div>
+        </div>
+        <div class="container-fluid bg-dark py-5">
+            <form class="container-fluid row g-3 bg-secondary">
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">ID</label>
+                    <input type="number" class="form-control" id="id_mensaje" disabled /> <br/>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">MessageText</label>
+                    <input type="text" class="form-control" id="name_mensaje" /> <br/>
+                </div>
+                <button id="boton" class="btn btn-primary" onclick="actualizarMensaje()">Actualizar</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+
+        <a class="btn btn-primary" href="mensaje.html">Regresar</a>  
+     
 </body>
-
+<script>$("#boton").click(function(e){
+e.preventDefault();
+})</script>
 </html>
+
