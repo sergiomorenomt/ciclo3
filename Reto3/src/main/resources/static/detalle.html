@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap CSS -->
-        
+
         <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
-    
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/consultar.js"></script>
         <script type="text/javascript" src="js/detalle.js"></script>
@@ -16,9 +16,9 @@
     </head>
     <body>
         <div class="container-fluid bg-dark py-5 py-5">
-        <div class="container text-white">
-            <h1 class="display-3 text-center"> <b> CUATRIMOTO </b> </h1>
-        </div>
+            <div class="container text-white">
+                <h1 class="display-3 text-center"> <b> CUATRIMOTO </b> </h1>
+            </div>
         </div>
 
         <div class="row g-3 bg-laigh py-3">
@@ -29,30 +29,31 @@
         <div class="container-fluid bg-dark py-5">
             <form class="container-fluid row g-3 bg-secondary">
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label">ID</label>
+                    <label class="form-label">ID</label>
                     <input type="number" class="form-control" id="id" disabled /> <br/>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Marca</label>
+                    <label class="form-label">Marca</label>
                     <input type="text" class="form-control" id="brand" /> <br/>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Modelo</label> 
+                    <label class="form-label">Modelo</label> 
                     <input type="number" class="form-control" id="year" /> <br/>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Categoria</label> 
+                    <label class="form-label">Categoria</label> 
                     <select class="form-control" id="category_id"></select> <br/>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCity" class="form-label">Nombre</label> 
+                    <label class="form-label">Nombre</label> 
                     <input type="text" class="form-control" id="name" /> <br/>
                 </div>
                 <div class="col-md-6">
-                    <button id="boton" class="btn btn-primary" onclick="actualizar()">Actualizar</button>
+                    <label class="form-label">Descripción</label> 
+                    <input type="text" class="form-control" id="description" /> <br/>
                 </div>
                 <div class="col-md-6">
-                    
+                    <button id="boton" class="btn btn-primary" onclick="actualizar()">Actualizar</button>
                 </div>
             </form>
             <a class="btn btn-primary" href="cuatrimoto.html">Regresar</a>  

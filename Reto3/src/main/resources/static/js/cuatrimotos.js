@@ -75,14 +75,14 @@ function consultar(){
 
 function mostrarRespuesta(items){
     $("#tabla").empty();
-    var tabla = `<table border="1">
+    var tabla = `<table class="table">
                   <tr>
                     <th>ID</th>
-                    <th>brand</th>
-                    <th>DESCRIPTION</th>
-                    <th>CATEGORY</th>
-                    <th>NAME</th>
+                    <th>MARCA</th>
+                    <th>NOMBRE</th>
                     <th>MODELO</th>
+                    <th>DESCRIPCION</th>
+                    <th>CATEGORIA</th>
                     <th>ACCIONES</th>
                   </tr>`;
                   
@@ -91,13 +91,13 @@ function mostrarRespuesta(items){
         tabla +=`<tr>
                    <td>${items[i].id}</td>
                    <td>${items[i].brand}</td>
-                   <td>${items[i].description}</td>
-                   <td>${items[i].category.name}</td>
                    <td>${items[i].name}</td>
                    <td>${items[i].year}</td>
+                   <td>${items[i].description}</td>
+                   <td>${items[i].category.name}</td>
                    <td>
-                   <button onclick="eliminar(${items[i].id})">Eliminar</button>
-                   <a href="detalle.html?id=${items[i].id}">Editar</a>
+                   <button type="button" class="btn btn-sm btn-primary" onclick="eliminar(${items[i].id})">Eliminar</button>
+                   <a type="button" class="btn btn-sm btn-primary" href="detalle.html?id=${items[i].id}">Editar</a>
                    </td> 
                 </tr>`;
     }

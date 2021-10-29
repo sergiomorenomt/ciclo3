@@ -52,5 +52,5 @@ public class QuadbikeWeb {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id) {
         return servicios.deleteQuadbike(id);
-    } 
+    }
 }
