@@ -50,4 +50,5 @@ function llenarDatos(item){
     $("#year").val(item.year);
     $("#category_id").val(item.category_id);
     $("#name").val(item.name);
+    $("#description").val(item.description);
 }
