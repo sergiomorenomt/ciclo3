@@ -94,7 +94,7 @@ function actualizarAdmin(){
             data: JSON.stringify(admin),
             statusCode:{
                 201:function(){
-                    alert('Se han actualizado los datos del admine');
+                    alert('Se han actualizado los datos del administrador');
                     window.location.assign('admin.html');
                 }
             }
@@ -116,8 +116,8 @@ function eliminarAdmin(id){
             data: JSON.stringify({idAdmin:id}),
             statusCode:{
                 204:function(){
-                    alert('Se ha eliminado el admine');
-                    consultaradmine()
+                    alert('Se ha eliminado el administrador');
+                    consultarAdmin()
                 }
             },
         });
