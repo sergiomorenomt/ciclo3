@@ -14,15 +14,23 @@ import reto3.reto3.repositorios.crud.InterfaceAdmin;
 
 @Repository
 public class RepositorioAdmin {
- @Autowired
+
+    @Autowired
     private InterfaceAdmin crud;
-    public List<Admin> getAll(){
+
+    public List<Admin> getAll() {
         return (List<Admin>) crud.findAll();
     }
-   public Optional <Admin> getAdmin(int idUsuario){
-       return crud.findById(idUsuario);
-   } 
-   public Admin save (Admin usuario){
-       return crud.save(usuario);
-   }   
+
+    public Optional<Admin> getAdmin(int idUsuario) {
+        return crud.findById(idUsuario);
+    }
+
+    public Admin save(Admin usuario) {
+        return crud.save(usuario);
+    }
+
+    public void delete(Admin admin) {
+        crud.delete(admin);
+    }
 }
