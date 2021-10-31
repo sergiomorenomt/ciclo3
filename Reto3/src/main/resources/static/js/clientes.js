@@ -70,8 +70,7 @@ function mostrarClientes(items){
                    <td>${items[i].email}</td>
                    <td>${items[i].age} años</td>
                    <td>
-                        <button onclick="eliminarCliente(${items[i].id})">Eliminar</button>
-                        <a href="detalleCliente.html?id=${items[i].id}">Ver detalle</a>
+                        <a href="detalleCliente.html?id=${items[i].idClient}">Ver detalle</a>
                    </td> 
                 </tr>`;
     }
@@ -80,24 +79,32 @@ function mostrarClientes(items){
     $("#tabla_cliente").html(tabla);
 }
 
-
+/**
+ * 
+ * @param {type} id
+ * @returns {undefined}
+ */
 function consultarClientePorId(id){
     $.ajax({
         url: url+ "/api/Client/"+id,
         type: 'GET',
         dataType: 'json',
-        success: function(respuesta){
-            console.log(respuesta.items);
-            mostrarClienteUnico(respuesta.items[0]);
+        success: function(client){
+            console.log(client);
+            mostrarClienteUnico(client);
         },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
         }
     });
 }
-
+/**
+ * 
+ * @param {client} item
+ * @returns {undefined}
+ */
 function mostrarClienteUnico(item) {
-    $("#id_cliente").val(item.id);
+    $("#id_cliente").val(item.idClient);
     $("#name_cliente").val(item.name);
     $("#email_cliente").val(item.email);
     $("#age_cliente").val(item.age);
@@ -107,13 +114,12 @@ function mostrarClienteUnico(item) {
 function actualizarCliente(){
 
     let client = {
-        
+        idClient: $("#id_cliente").val(),
         name: $("#name_cliente").val(),
         email: $("#email_cliente").val(),
         age: +$("#age_cliente").val(),
         password: $("#password_cliente").val()
     };
-
     console.log(client);
     if (validarCliente(client)){
         $.ajax({
@@ -127,9 +133,9 @@ function actualizarCliente(){
             statusCode:{
                 201:function(){
                     alert('Se han actualizado los datos del cliente');
-                    window.location.assign('index.html')
+                    window.location.assign('cliente.html');
                 }
-            },
+            }
         });
 
         }
@@ -145,7 +151,7 @@ function eliminarCliente(id){
             headers: {
                 "Content-Type": "application/json"
             },
-            data: JSON.stringify({id:id}),
+            data: JSON.stringify({idClient:id}),
             statusCode:{
                 204:function(){
                     alert('Se ha eliminado el cliente');
@@ -159,7 +165,7 @@ function eliminarCliente(id){
 
 function validarCliente(client){
     if (client.id<=0|| client.name===''|| client.email===''|| client.age<=0){
-        alert("Procure no dejar campos vacíos\nEl id y la edad son números no negativos")
+        alert("Procure no dejar campos vacíos\nLa edad es un número no negativo")
         return false;
     }else if (client.email.length>45){
         alert('Su correo es demasiado extenso. Solamente puede tener hasta 45 caracteres')
