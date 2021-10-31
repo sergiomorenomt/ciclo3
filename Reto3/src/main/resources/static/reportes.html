@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/reportes.js"></script>
+    <script type="text/javascript" src="js/consultar.js"></script>
+    <script type="text/javascript" src="js/cuatrimotos.js"></script>
+    <script type="text/javascript" src="js/clientes.js"></script>
+    <script type="text/javascript" src="js/categorias.js"></script>
+    <script type="text/javascript" src="js/reservaciones.js"></script>
+    <script type="text/javascript" src="js/score.js"></script>
+    
+    <title>Reportes </title>
+</head>
+
+<body>
+    <h1> REPORTES</h1>
+
+    <button onclick="traerReporteStatus()"> Generar Reporte Status Reservas </button>
+    <div id="resultadoStatus"></div>
+
+       
+    <input type="date" id="rStartDate">
+    <input type="date" id="rDevolutionDate">
+    <button onclick="traerReporteDate()"> Generar Reporte por fecha </button>
+    <div id="resultadoDate"></div>
+
+    
+    <button onclick="traerReporteClientes()"> Generar Reporte Clientes y Cantidad de reservas por cliente </button>
+    <div id="resultadoClientes"></div>
+
+</body>
+</html> 
