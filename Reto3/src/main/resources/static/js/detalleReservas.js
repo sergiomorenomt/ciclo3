@@ -13,16 +13,19 @@ function consultarReservaPorId(id){
         type: 'GET',
         dataType: 'json',
         success: function(respuesta){
-            console.log(respuesta.items);
-            if (respuesta.items.length==1){
-                llenarDatos(respuesta.items[0]);
-            }else{
-                $("#boton").hide();
-                alert('No se encuentra la reserva con el id '+id);
-            }
-        },
+            console.log(respuesta);
+            llenarDatos(respuesta);
+              },
         error: function (xhr, status) {
             alert('ha sucedido un problema');
         }
     });
+}
+
+function llenarDatos(item){
+    $("#id_Reservation").val(item.idReservation);
+    $("#start_Date").val(item.startDate);
+    $("#start_Devolution").val(item.devolutionDate);
+    $("#name_cliente").val(item.client.name);
+    $("#score").val(item.score);
 }

@@ -1,59 +1,66 @@
 <html>
 
-<head>
+    <head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+        <!-- Bootstrap CSS -->
 
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/consultar.js"></script>
-    <script type="text/javascript" src="js/cuatrimotos.js"></script>
-    <script type="text/javascript" src="js/clientes.js"></script>
-    <script type="text/javascript" src="js/categorias.js"></script>
-    <script type="text/javascript" src="js/reservaciones.js"></script>
-    <script type="text/javascript" src="js/score.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="js/consultar.js"></script>
+        <script type="text/javascript" src="js/cuatrimotos.js"></script>
+        <script type="text/javascript" src="js/clientes.js"></script>
+        <script type="text/javascript" src="js/categorias.js"></script>
+        <script type="text/javascript" src="js/reservaciones.js"></script>
+        <script type="text/javascript" src="js/score.js"></script>
 
-</head>
+    </head>
 
-<body>
-    <div class="container-fluid bg-dark py-5 py-5">
-        <div class="container text-white">
-            <h1 class="display-3 text-center"> <b> ALQUILER DE CUATRIMOTOS </b> </h1>
-        </div>
-    </div>
-    <div class="container-fluid bg-white py-5 py-5">
-
-        <div class="container-fluid bg-white py-5 py-5">
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-4 bg-light">
-                <h1> RESERVAS</h1>
-                
-                    <div>
-                    Quadbike <select id="name"></select> <br/>
-                    Start Date <input type="date" id="start_Date" /> <br />
-                    Devolution Date <input type="date" id="devolution_Date"/> <br/>
-                    Client <select id="id_Client"></select> <br/>
-                    <button onclick="reservar()">Guardar Reservas</button>
-                   <button type="button" class="btn btn-success">Success</button>
-                    
-                </div>
-                
-                <button onclick="consultarReserva()"> Consultar Reservas</button>
-                <div id="tabla_reserva"></div>
-                
+    <body>
+        <div class="container-fluid bg-dark py-5 py-5">
+            <div class="container text-white">
+                <h1 class="display-3 text-center"> <b> ALQUILER DE CUATRIMOTOS </b> </h1>
             </div>
         </div>
-    </div>
-</body>
+
+        <div class="container">
+            <div class="p-3 mb-2 bg-primary text-white">RESERVAR</div>
+            <br/><br/>
+            <div>
+                Quadbike <select id="name"></select> <br/>
+
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Start Date</label>
+                    <input class="form-control" type="date" id="start_Date">
+                </div>
+
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Devolution Date</label>
+                    <input class="form-control" type="date" id="devolution_Date">
+                </div>
+
+                Client <select id="id_Client"></select> <br/><br/>
+            </div>
+            <br/><br/>
+            <div>
+                <button onclick="reservar()" class="btn btn-success">Guardar Reserva</button>
+            </div>
+            <br/><br/>
+            <div>
+
+                <button onclick="consultarReserva()" class="btn btn-warning">Consultar Reservas</button>
+            </div>
+            <br/><br/>
+            <div>
+                <div id="tabla_reserva"></div>
+            </div>
+        </div>
+
+    </body>
 
 
 </html>

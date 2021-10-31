@@ -9,7 +9,7 @@ $(document).ready(function () {
             console.log(respuesta);
             clientes = respuesta
             cargarClientes(clientes);
-            consultar();
+            
         }
     });
     $.ajax({
@@ -20,7 +20,7 @@ $(document).ready(function () {
             console.log(respuesta);
             cuatrimotos = respuesta
             cargarQuadbike(cuatrimotos);
-            consultar();
+            
         }
     });
     consultarReserva()
@@ -94,14 +94,15 @@ function consultarReserva() {
 }
 
 function mostrarReserva(items) {
-    var tabla = `<table class="table">
+    var tabla = `<table class="table table-striped table-hover">
                   <tr>
                     <th>ID RESERVATION</th>
                     <th>START DATE</th>
                     <th>DEVOLUTION DATE</th>
                     <th>CLIENT</th>
                     <th>SCORE</th>
-                    <th>Acciones</th>
+                    <th>STATUS</th>
+                    <th>ACCIONES</th>
                   </tr>`;
 
     // Id quadbike no se muestra en la visualización de reservas //
@@ -117,6 +118,7 @@ function mostrarReserva(items) {
                    <td>${items[i].devolutionDate}</td>
                    <td>${items[i].client.name}</td>
                    <td>${txtScore}</td>
+                    <td>${items[i].status}</td>
                    <td>
                         <button onclick="eliminarReserva(${items[i].idReservation})">Eliminar</button>
                         <a href="score.html?id=${items[i].idReservation}">Ir a calificar</a>
@@ -136,10 +138,8 @@ function actualizarReserva() {
         idReservation: +$("#id_Reservation").val(),
         startDate: $("#start_Date").val(),
         devolutionDate: $("#devolution_Date").val(),
-        id: +$("#id").val(), //id de la cuatrimoto
-        idClient: +$("#id_Client").val(),
-        nameClient: $("#name_Client").val(),
         score: +$("#score").val(),
+        status: $("#status").val(),
 
     };
 
