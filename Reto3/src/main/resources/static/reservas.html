@@ -37,16 +37,17 @@
             <div class="col-4 bg-light">
                 <h1> RESERVAS</h1>
                 
-                <button onclick="consultarReserva()"> Consultar Reservas</button>
-
-                <div>
+                    <div>
                     Quadbike <select id="name"></select> <br/>
                     Start Date <input type="date" id="start_Date" /> <br />
                     Devolution Date <input type="date" id="devolution_Date"/> <br/>
                     Client <select id="id_Client"></select> <br/>
                     <button onclick="reservar()">Guardar Reservas</button>
-
+                   <button type="button" class="btn btn-success">Success</button>
+                    
                 </div>
+                
+                <button onclick="consultarReserva()"> Consultar Reservas</button>
                 <div id="tabla_reserva"></div>
                 
             </div>

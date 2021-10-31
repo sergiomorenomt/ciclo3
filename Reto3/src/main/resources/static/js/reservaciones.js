@@ -94,7 +94,7 @@ function consultarReserva() {
 }
 
 function mostrarReserva(items) {
-    var tabla = `<table border="1">
+    var tabla = `<table class="table">
                   <tr>
                     <th>ID RESERVATION</th>
                     <th>START DATE</th>
@@ -120,7 +120,7 @@ function mostrarReserva(items) {
                    <td>
                         <button onclick="eliminarReserva(${items[i].idReservation})">Eliminar</button>
                         <a href="score.html?id=${items[i].idReservation}">Ir a calificar</a>
-                        <a href="detalleReservas.html?id=${items[i].idReservation}">Ver detalle</a>
+                        <a href="detalleReservas.html?id=${items[i].idReservation}">Editar</a>
                    </td> 
                 </tr>`;
     }
@@ -134,8 +134,8 @@ function actualizarReserva() {
 
     let reserva = {
         idReservation: +$("#id_Reservation").val(),
-        startDate: +$("#start_Date").val(),
-        devolutionDate: +$("#devolution_Date").val(),
+        startDate: $("#start_Date").val(),
+        devolutionDate: $("#devolution_Date").val(),
         id: +$("#id").val(), //id de la cuatrimoto
         idClient: +$("#id_Client").val(),
         nameClient: $("#name_Client").val(),
@@ -156,7 +156,7 @@ function actualizarReserva() {
             statusCode: {
                 201: function () {
                     alert('Se han actualizado los datos de la reserva');
-                    window.location.assign('index.html')
+                    window.location.assign('reservas.html')
                 }
             },
         });
@@ -178,7 +178,7 @@ function eliminarReserva(idReservation) {
             statusCode: {
                 204: function () {
                     alert('Se ha eliminado la reserva');
-                    consultarreserva()
+                    consultarReserva()
                 }
             },
         });

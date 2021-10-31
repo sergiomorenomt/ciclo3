@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reto3.reto3.modelo.Reservation;
+import reto3.reto3.repositorio.ContadorClientes;
 import reto3.reto3.servicio.ServiciosReservation;
+import reto3.reto3.servicio.StatusReservas;
 
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController
@@ -53,4 +55,20 @@ public class ReservationWeb {
     public boolean delete(@PathVariable("id") int idReservation) {
         return servicios.deleteReservation(idReservation);
     }
+    
+    @GetMapping("/report-status")
+    public StatusReservas getReservas(){
+        return servicios.reporteStatusServicio();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+     public List<Reservation> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo ){
+         return servicios.reporteTiempoServicio(dateOne, dateTwo);
+     }
+     
+     @GetMapping("/report-clients")
+     public List<ContadorClientes> getClientes(){
+         return servicios.reporteClientesServicio();
+     }
+    
 }
