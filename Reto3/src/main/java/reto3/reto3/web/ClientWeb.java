@@ -40,19 +40,19 @@ public class ClientWeb {
     }
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client save(@RequestBody Client client) {
-        return servicios.save(client);
+    public void save(@RequestBody Client client) {
+        servicios.save(client);
     } 
     
      @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client update(@RequestBody Client client) {
-        return servicios.update(client);
+    public void update(@RequestBody Client client) {
+        servicios.update(client);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int idClient) {
-        return servicios.deleteClient(idClient);
+    public void delete(@PathVariable("id") int idClient) {
+        servicios.deleteClient(idClient);
     }
 }

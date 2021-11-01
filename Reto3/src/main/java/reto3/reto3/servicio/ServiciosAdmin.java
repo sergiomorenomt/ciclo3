@@ -40,5 +40,29 @@ public class ServiciosAdmin {
         }
             
     }
-
+    public Admin update(Admin admin){
+        if(admin.getIdAdmin()!=null){
+            Optional<Admin>a=metodosCrud.getAdmin(admin.getIdAdmin());
+            if(!a.isEmpty()){
+                if(admin.getEmail()!=null){
+                    a.get().setEmail(admin.getEmail());
+                }
+                if(admin.getName()!=null){
+                    a.get().setName(admin.getName());
+                }
+                if(admin.getPassword()!=null){
+                    a.get().setPassword(admin.getPassword());
+                }
+                return metodosCrud.save(a.get());
+            }
+        }
+        return admin;
+    }
+    public boolean deleteAdmin(int idAdmin){
+        Boolean d=getAdmin(idAdmin).map(admin -> {
+            metodosCrud.delete(admin);
+            return true;
+        }).orElse(false);
+        return d;
+    }
 }
