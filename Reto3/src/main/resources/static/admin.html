@@ -14,21 +14,54 @@
 </head>
 
 <body>
+    <div class="container-fluid bg-dark py-5 py-5">
+        <div class="container text-white">
+          <h1 class="display-3 text-center"> <b> Administradores </b> </h1>
+        </div>
+      </div>
+      <div class="row g-3 bg-laigh py-3">
+          <div class="col-md-3">
+              <h1 class="display-12 text-center">Registrar administrador</h1>
+          </div>
+      </div>
+    <div class="container-fluid bg-white py-5">
+        <form action="" class="container-fluid row g-3 bg-secondary">
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name_admin">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email_admin">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password_admin">
+            </div>
+            <div class="col-md-6">
+                <button id="boton" class="btn btn-primary" onclick="guardarAdmin()">Guardar</button>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-primary" href="index.html">Volver al inicio</a>
+            </div>
 
-    <h1 class="display-6 text-center">Administradoress</h1>
-            <h4>Registrar un Administrador</h4>
-            Nombre <input type="text" id="name_admin"> <br>
-            Correo <input type="text" id="email_admin"> <br>
-            Contraseña <input type="password" id="password_admin"> <br>
-            <button onclick="guardarAdmin()">Guardar</button>
-            <a href="index.html">Volver al inicio</a>
+        </form>
+    </div>
+      
+        <div class="row g-3 bg-laigh py-3">
             <h4>Administradores Registrados</h4>
 
             <div id="tabla_admin">
                 <!-- Esto es un comentario en html, y
             puede ser multilinea -->
             </div>
+        </div>
+            
 
 </body>
-
+<script>
+    $("#boton").click(function(e){
+        e.preventDefault();
+    })
+</script>
 </html>
