@@ -78,9 +78,9 @@ function mostrarAdmins(items){
 function actualizarAdmin(){
     let admin = {
         idAdmin: $("#id").val(),
-        name: $("#name").val(),
-        email: $("#email").val(),
-        password: $("#password").val()
+        name: $("#name_admin").val(),
+        email: $("#email_admin").val(),
+        password: $("#password_admin").val()
     };
     console.log(admin);
     if (validarAdmin(admin)){
@@ -136,7 +136,7 @@ function consultarAdminById(id){
                 llenarDatos(respuesta);
             }else{
                 $("#boton").hide();
-                alert('No se encuentra la cuatrimoto con el id '+id);
+                alert('No se encuentra el admin con el id '+id);
             }
         },
         error: function (xhr, status) {
@@ -147,8 +147,8 @@ function consultarAdminById(id){
 
 function llenarDatos(item){
     $("#id").val(item.idAdmin);
-    $("#name").val(item.name);
-    $("#email").val(item.email);
+    $("#name_admin").val(item.name);
+    $("#email_admin").val(item.email);
     }
 
 
