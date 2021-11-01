@@ -1,30 +1,58 @@
 <html>
 
-<head>
-    
-    <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <head>
 
-    <script type="text/javascript" src="js/consultar.js"></script>
-    <script src="js/reservaciones.js"></script>
-    <script src="js/detalleReservas.js"></script>
-    <title>Detalle Reservas</title>
-</head>
+        <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="js/consultar.js"></script>
+        <script src="js/reservaciones.js"></script>
+        <script src="js/detalleReservas.js"></script>
+        <title>Detalle Reservas</title>
+    </head>
 
-<body>
-    
-    <h1>Reservas</h1>
-    <h4>Actualizar Reserva</h4>
-    ID <input type="number" id="id_Reservation" disabled /> <br />
-    Start Date <input type="date" id="start_Date"/> <br/>
-    Devolution Date <input type="date" id="devolution_Date"/> <br/>
-    ID Client <input type="number" id="id_cliente"/> <br/>
-    Name Client<input type="text" id="name_cliente"/> <br/>
-    Score<input type="number" id="score"/> <br/>
-    <button onclick="actualizarReserva()">Actualizar</button>
-    <a href="index.html">Volver al inicio</a>
-</body>
+    <body>
+
+        <div class="container">
+            <div class="p-3 mb-2 bg-primary text-white">RESERVAS</div>
+
+            <span class="badge bg-info text-dark">Actualizar Reserva</span>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">ID</label>
+                <input type="number" class="form-control" id="id_Reservation" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">START DATE</label>
+                <input type="date" class="form-control" id="start_Date"/>
+            </div>    
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">DEVOLUTION DATE</label>
+                <input type="date" class="form-control" id="devolution_Date"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">ID CLIENT</label>
+                <input type="number" class="form-control" id="id_cliente"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">CLIENT NAME</label>
+                <input type="number" class="form-control" id="name_cliente"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">SCORE</label>
+                <input type="number" class="form-control" id="score_R" />
+
+                <button onclick="actualizarReserva()" class="btn btn-danger">Actualizar</button>
+                <a href="index.html">Volver al inicio</a>
+                    
+            </div>
+            
+        </div>
+
+    </body>
 
 </html>
-
-

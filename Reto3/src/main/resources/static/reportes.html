@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html >
-<head>
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/reportes.js"></script>
-    <script type="text/javascript" src="js/consultar.js"></script>
-    <script type="text/javascript" src="js/cuatrimotos.js"></script>
-    <script type="text/javascript" src="js/clientes.js"></script>
-    <script type="text/javascript" src="js/categorias.js"></script>
-    <script type="text/javascript" src="js/reservaciones.js"></script>
-    <script type="text/javascript" src="js/score.js"></script>
-    
-    <title>Reportes </title>
-</head>
+    <head>
 
-<body>
-    <h1> REPORTES</h1>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <button onclick="traerReporteStatus()"> Generar Reporte Status Reservas </button>
-    <div id="resultadoStatus"></div>
+        <!-- Bootstrap CSS -->
 
-       
-    <input type="date" id="rStartDate">
-    <input type="date" id="rDevolutionDate">
-    <button onclick="traerReporteDate()"> Generar Reporte por fecha </button>
-    <div id="resultadoDate"></div>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-    
-    <button onclick="traerReporteClientes()"> Generar Reporte Clientes y Cantidad de reservas por cliente </button>
-    <div id="resultadoClientes"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/reportes.js"></script>
+        <script type="text/javascript" src="js/consultar.js"></script>
+        <script type="text/javascript" src="js/cuatrimotos.js"></script>
+        <script type="text/javascript" src="js/clientes.js"></script>
+        <script type="text/javascript" src="js/categorias.js"></script>
+        <script type="text/javascript" src="js/reservaciones.js"></script>
+        <script type="text/javascript" src="js/score.js"></script>
 
-</body>
+        <title>Reportes </title>
+    </head>
+
+    <body>
+
+        <div class="container-fluid bg-dark py-5 py-5">
+            <div class="container text-white">
+                <h1 class="display-3 text-center"> <b> CUATRIMOTOS </b> </h1>
+            </div>
+        </div>
+
+        <br/><br/>
+        <div class="container">
+            <div class="p-3 mb-2 bg-warning text-dark">REPORTES</div>
+            <br/><br/>
+
+            <div class="d-grid gap-4 col-3 mx-auto">
+                <button onclick="traerReporteStatus()" class="btn btn-primary">Generar Reporte Status Reservas</button>
+                <div id="resultadoStatus"></div>
+
+                <input type="date" id="rStartDate"> <input type="date" id="rDevolutionDate">
+                <button onclick="traerReporteDate()" class="btn btn-primary">Generar Reporte por fecha</button>
+                <div id="resultadoDate"></div>
+
+                <button onclick="traerReporteClientes()" class="btn btn-primary">Generar Reporte Clientes y Cantidad de reservas por cliente</button>
+                <div id="resultadoClientes"></div>
+            </div>
+
+        </div>
+
+    </body>
 </html> 

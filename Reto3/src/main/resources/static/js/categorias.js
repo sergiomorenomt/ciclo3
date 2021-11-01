@@ -47,7 +47,7 @@ function eliminarCategorias(identificador){
 
 function mostrarRespuestaCat(respuesta) {
 
-    let myTable = `<table border="1">
+    let myTable = `<table class="table">
                     <tr>
                     
                     <th>Nombre</th>
